@@ -7,7 +7,7 @@ public class Calculator {
         this.dataProvider = dataProvider;
     }
 
-    public double calculate(){
-        return (dataProvider.get() * dataProvider.get())/dataProvider.get();
+    public double calculate() {
+        return (dataProvider.get() * dataProvider.get());
     }
 }
