@@ -1,0 +1,13 @@
+group 'pl.edu.amu.bawsj.mockito'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+
+repositories { jcenter() }
+
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-all:1.10.19"
+}
