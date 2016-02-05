@@ -1,8 +1,5 @@
 package pl.edu.amu.bawsj.mockito.b;
 
-/**
- * Created by Bocian on 03.02.2016.
- */
 public class DataConcatenator {
     private DataChanger changer;
 
