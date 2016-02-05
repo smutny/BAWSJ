@@ -16,6 +16,8 @@ import java.util.ConcurrentModificationException;
 /**
  * Conway's game of life is a cellular automaton devised by the
  * mathematician John Conway.
+ *
+ * source: http://rosettacode.org/wiki/Conway%27s_Game_of_Life/Java/Swing
  */
 public class ConwaysGameOfLife extends JFrame implements ActionListener
 {
