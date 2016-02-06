@@ -1,6 +1,5 @@
 package pl.edu.amu.bawsj.mockito.a;
 
-import java.util.Date;
 import java.util.Random;
 
 public class RandomDataProvider implements DataProvider {
