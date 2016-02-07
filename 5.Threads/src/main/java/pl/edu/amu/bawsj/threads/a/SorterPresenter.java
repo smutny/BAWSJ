@@ -1,4 +1,4 @@
-package pl.edu.amu.bawsj.threads;
+package pl.edu.amu.bawsj.threads.a;
 
 import javafx.application.Platform;
 import org.apache.logging.log4j.LogManager;

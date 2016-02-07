@@ -1,4 +1,4 @@
-package pl.edu.amu.bawsj.threads;
+package pl.edu.amu.bawsj.threads.a;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
