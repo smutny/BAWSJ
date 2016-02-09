@@ -8,7 +8,6 @@ public class FizzBuzzTest {
 
     @Test
     public void testTest() {
-        fail();
     }
 
 }
