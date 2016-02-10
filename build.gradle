@@ -1,44 +1,25 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'de.undercouch:gradle-download-task:2.1.0'
-    }
-}
-
-subprojects {
+configure(subprojects - project(':0.Reveal')) {
     apply plugin: 'java'
 
     repositories { jcenter() }
 
     dependencies {
+
         compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.5'
         compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.5'
         testCompile 'junit:junit:4.12'
         testCompile "org.mockito:mockito-all:1.10.19"
     }
 
-    apply plugin: 'de.undercouch.download'
-
-    task downloadReveal(type: de.undercouch.gradle.tasks.download.Download) {
-        src "https://codeload.github.com/hakimel/reveal.js/zip/3.2.0"
-        dest new File(buildDir, "reveal.zip")
+    task copyRevealFiles(dependsOn: ":0.Reveal:prepareReveal", type: Copy) {
+        from "${project(':0.Reveal').buildDir}/reveal"
+        into file("${buildDir}/reveal")
     }
+    task reveal(dependsOn: copyRevealFiles, type: Copy) {
+        from("src/main/reveal"){
+            filter { line-> line.replaceAll("../../../../0.Reveal/build/reveal/","")}
+        }
 
-    task unpackReveal(dependsOn: downloadReveal, type: Copy) {
-        from zipTree(downloadReveal.dest)
-        into file("${buildDir}/unpacked/reveal")
-    }
-
-    task copyReveal(dependsOn: unpackReveal, type: Copy) {
-        from file("${buildDir}/unpacked/reveal/reveal.js-3.2.0")
-        into 'build/reveal'
-    }
-
-
-    task reveal(dependsOn: copyReveal, type: Copy) {
-        from "src/main/reveal/"
         into file("${buildDir}/reveal")
     }
 
