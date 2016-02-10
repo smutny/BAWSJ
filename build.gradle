@@ -19,8 +19,6 @@ subprojects {
         testCompile "org.mockito:mockito-all:1.10.19"
     }
 
-
-
     apply plugin: 'de.undercouch.download'
 
     task downloadReveal(type: de.undercouch.gradle.tasks.download.Download) {
