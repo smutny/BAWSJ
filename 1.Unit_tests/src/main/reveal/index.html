@@ -28,19 +28,6 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? '../../../../0.Reveal/build/reveal/css/print/pdf.css' : '../../../../0.Reveal/build/reveal/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
-
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
 
     <!--[if lt IE 9]>
@@ -265,8 +252,8 @@ public void shouldThrowPreviouslyRecordedException(){
                    @Test
                    public void shouldVerifyIfTheMethodWasCalled()
                    {
-                   List<String> list = new ArrayList<>();
-                   List<String> spyList = Mockito.spy( list );
+                   List&lt;String&gt; list = new ArrayList<>();
+                   List&lt;String&gt; spyList = Mockito.spy( list );
 
                        spyList.add( "test" );
 
@@ -310,20 +297,6 @@ public void shouldThrowPreviouslyRecordedException(){
 					{ src: '../../../../0.Reveal/build/reveal/plugin/notes/notes.js', async: true }
 				]
 			});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 </body>
