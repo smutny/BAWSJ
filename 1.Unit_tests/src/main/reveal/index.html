@@ -231,6 +231,50 @@
                </code></pre>
             </section>
             <section>
+                <h2>Rzucanie wyjątków</h2>
+               <pre><code class="java">
+@Test( expected = IndexOutOfBoundsException.class )
+public void shouldThrowPreviouslyRecordedException(){
+    List list = Mockito.mock( List.class );
+    Mockito    .when( list.get( 9 ) )
+               .thenThrow( IndexOutOfBoundsException.class );
+    try {
+        list.get( 0 );
+    }catch( IndexOutOfBoundsException e ){
+        Assert.fail();
+    }
+    list.get( 9 );
+}
+               </code></pre>
+            </section>
+            <section>
+                <h2>Sprawdzanie wykonania</h2>
+               <pre><code class="java">
+                   @Test
+                   public void shouldVerifyIfTheMethodWasCalled()
+                   {
+                   Runnable runnable = Mockito.mock( Runnable.class );
+                   runnable.run();
+                   Mockito.verify( runnable, Mockito.times( 1 ) ).run();
+                   }
+               </code></pre>
+            </section>
+            <section>
+                <h2>Szpiegowanie obiektów</h2>
+               <pre><code class="java">
+                   @Test
+                   public void shouldVerifyIfTheMethodWasCalled()
+                   {
+                   List<String> list = new ArrayList<>();
+                   List<String> spyList = Mockito.spy( list );
+
+                       spyList.add( "test" );
+
+                       Mockito.verify( spyList ).add( Mockito.anyString() );
+                       }
+               </code></pre>
+            </section>
+            <section>
                 <h2>Dobre praktyki</h2>
                 <ul>
                     <li>Do not mock types you don’t own</li>
