@@ -28,6 +28,12 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? '../../../../0.Reveal/build/reveal/css/print/pdf.css' : '../../../../0.Reveal/build/reveal/css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+
+
+
+
+
     </script>
 
     <!--[if lt IE 9]>
@@ -58,18 +64,42 @@
             </section>
             <section>
                 <h2>Statyczne</h2>
+                <ul>
+                    <li>Statyczna analiza kodu</li>
+                    <li>Przeglądy kodu</li>
+                    <li>Metody formalne</li>
+                </ul>
             </section>
             <section>
                 <h2>Dynamiczne</h2>
-            </section>
-            <section>
-                <h2>Wizualne</h2>
+                <ul>
+                    <li>Wymaga uruchomienia programu</li>
+                    <li>Wymaga przypadów testowych</li>
+                </ul>
             </section>
             <section>
                 <h2>Czarna skrzynka</h2>
+                <ul>
+                    <li>Brak wiedzy o wnętrznościach aplikacji</li>
+                    <li>Testowanie zadeklarowanych funkcjonalności</li>
+                </ul>
+                <blockquote cite="https://en.wikipedia.org/wiki/Black-box_testing">
+                    Black-box testing is a method of software testing that examines the functionality of an
+                    application without peering into its internal structures or workings.
+                </blockquote>
+
             </section>
             <section>
                 <h2>Biała skrzynka</h2>
+                <ul>
+                    <li>Wiedza o wnętrznościach aplikacji</li>
+                    <li>Testowanie mniejszych, wewnętrznych modułów</li>
+                </ul>
+                <blockquote cite="https://en.wikipedia.org/wiki/White-box_testing">White-box testing is a
+                    method of testing software that tests internal structures or workings of an
+                    application.
+                </blockquote>
+
             </section>
         </section>
 
@@ -85,15 +115,57 @@
             </section>
             <section>
                 <h2>Jednostkowe</h2>
+                <ul>
+                    <li>Czas wykonania wykonania: natychmiastowe</li>
+                    <li>Automatyzacja: tak</li>
+                    <li>Pokrycie: funkcja/procedura</li>
+                    <li>Co testujemy?</li>
+                    <ul>
+                        <li>Analiza ścieżek</li>
+                        <li>Wartości brzegowe</li>
+                        <li>Klasy równoważności</li>
+                    </ul>
+                </ul>
             </section>
             <section>
                 <h2>Integracyjne</h2>
+                <ul>
+                    <li>Czas wykonania wykonania: krótkie</li>
+                    <li>Automatyzacja: tak</li>
+                    <li>Pokrycie: komunikacja międzymodułowa</li>
+                    <li>Co testujemy?</li>
+                    <ul>
+                        <li>Integracja między wartwami aplikacji</li>
+                        <li>Integracja między modułami aplikacji</li>
+                        <li>Integracja między systemami zewnętrznymi</li>
+                    </ul>
+                </ul>
             </section>
             <section>
                 <h2>Systemowe</h2>
+                <ul>
+                    <li>Czas wykonania wykonania: długi</li>
+                    <li>Automatyzacja: nie/tak</li>
+                    <li>Pokrycie: całość systemu</li>
+                    <li>Co testujemy?</li>
+                    <ul>
+                        <li>Wymagania funkcjonalne</li>
+                        <li>Wymagania pozafunkcjonalne</li>
+                    </ul>
+                </ul>
             </section>
             <section>
                 <h2>Akceptacyjne</h2>
+                <ul>
+                    <li>Czas wykonania wykonania: długi</li>
+                    <li>Automatyzacja: niek</li>
+                    <li>Pokrycie: całość systemu</li>
+                    <li>Co testujemy?</li>
+                    <ul>
+                        <li>Wymagania funkcjonalne</li>
+                        <li>Wymagania pozafunkcjonalne</li>
+                    </ul>
+                </ul>
             </section>
         </section>
 
@@ -107,9 +179,20 @@
             </section>
             <section>
                 <h2>Funkcjonalne</h2>
+                <ul>
+                    <li>Sprawdzanie czy wymagania są spełnione</li>
+                    <li>Często wykonywane przez osoby nietechniczne</li>
+                </ul>
             </section>
             <section>
                 <h2>Pozafunkcjonalne</h2>
+                <ul>
+                    <li>Testy obciążeniowe (stress)</li>
+                    <li>Testy wydajnościowe (load)</li>
+                    <li>Testy bezpieczeństwa</li>
+                    <li>Testy ergonomii</li>
+                    <li>Testy instalacji</li>
+                </ul>
             </section>
         </section>
         <section>
@@ -220,18 +303,18 @@
             <section>
                 <h2>Rzucanie wyjątków</h2>
                <pre><code class="java">
-@Test( expected = IndexOutOfBoundsException.class )
-public void shouldThrowPreviouslyRecordedException(){
-    List list = Mockito.mock( List.class );
-    Mockito    .when( list.get( 9 ) )
-               .thenThrow( IndexOutOfBoundsException.class );
-    try {
-        list.get( 0 );
-    }catch( IndexOutOfBoundsException e ){
-        Assert.fail();
-    }
-    list.get( 9 );
-}
+                   @Test( expected = IndexOutOfBoundsException.class )
+                   public void shouldThrowPreviouslyRecordedException(){
+                   List list = Mockito.mock( List.class );
+                   Mockito .when( list.get( 9 ) )
+                   .thenThrow( IndexOutOfBoundsException.class );
+                   try {
+                   list.get( 0 );
+                   }catch( IndexOutOfBoundsException e ){
+                   Assert.fail();
+                   }
+                   list.get( 9 );
+                   }
                </code></pre>
             </section>
             <section>
@@ -255,10 +338,10 @@ public void shouldThrowPreviouslyRecordedException(){
                    List&lt;String&gt; list = new ArrayList<>();
                    List&lt;String&gt; spyList = Mockito.spy( list );
 
-                       spyList.add( "test" );
+                   spyList.add( "test" );
 
-                       Mockito.verify( spyList ).add( Mockito.anyString() );
-                       }
+                   Mockito.verify( spyList ).add( Mockito.anyString() );
+                   }
                </code></pre>
             </section>
             <section>
@@ -297,6 +380,12 @@ public void shouldThrowPreviouslyRecordedException(){
 					{ src: '../../../../0.Reveal/build/reveal/plugin/notes/notes.js', async: true }
 				]
 			});
+
+
+
+
+
+
 </script>
 
 </body>
