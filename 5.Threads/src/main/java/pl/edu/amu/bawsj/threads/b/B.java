@@ -4,9 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.*;
 
-/**
- * Created by Bocian on 07.02.2016.
- */
 public class B {
     ExecutorService executor = Executors.newFixedThreadPool(2);
 

@@ -1,8 +1,5 @@
 package pl.edu.amu.bawsj.refactoring.a;
 
-/**
- * Created by mbocian on 2016-02-04.
- */
 public class Processor {
     private boolean close = false;
 

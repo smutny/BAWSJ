@@ -6,9 +6,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by Bocian on 07.02.2016.
- */
 public class C {
     ExecutorService executor = Executors.newFixedThreadPool(2);
 
