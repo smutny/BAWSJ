@@ -16,8 +16,8 @@ configure(subprojects - project(':0.Reveal')) {
         into file("${buildDir}/reveal")
     }
     task reveal(dependsOn: copyRevealFiles, type: Copy) {
-        from("src/main/reveal"){
-            filter { line-> line.replaceAll("../../../../0.Reveal/build/reveal/","")}
+        from("src/main/reveal") {
+            filter { line -> line.replaceAll("../../../../0.Reveal/build/reveal/", "") }
         }
 
         into file("${buildDir}/reveal")

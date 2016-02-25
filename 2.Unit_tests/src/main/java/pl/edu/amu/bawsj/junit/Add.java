@@ -1,8 +1,10 @@
 package pl.edu.amu.bawsj.junit;
 
-public class Add {
+public class Add
+{
 
-    public int go(int a, int b) {
+    public int go( int a, int b )
+    {
         return a + b;
     }
 }

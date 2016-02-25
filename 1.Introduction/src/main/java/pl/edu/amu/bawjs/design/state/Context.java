@@ -9,7 +9,8 @@ public class Context
         this.state = state;
     }
 
-    public void request(){
+    public void request()
+    {
         state.handle();
     }
 
