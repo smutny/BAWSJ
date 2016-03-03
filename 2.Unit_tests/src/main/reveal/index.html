@@ -201,43 +201,43 @@
             <section>
                 <h2>Minimalny test</h2>
                <pre><code class="java">
-                   import org.junit.Test;
+import org.junit.Test;
 
-                   public class Test
-                   {
-                   @Test
-                   public void method()
-                   {
-                   }
-                   }
+public class Test
+{
+    @Test
+    public void method()
+    {
+    }
+}
                </code></pre>
             </section>
             <section>
                 <h2>Nazwa metody</h2>
                <pre><code class="java">
-                   import org.junit.Test;
+import org.junit.Test;
 
-                   public class Test
-                   {
-                   @Test
-                   public void shouldCreateUser()
-                   {
-                   User u = UserFactory.createUser();
-                   Assert.assertNotNull(u);
-                   }
-                   }
+public class Test
+{
+    @Test
+    public void shouldCreateUser()
+    {
+        User u = UserFactory.createUser();
+        Assert.assertNotNull(u);
+    }
+}
                </code></pre>
             </section>
             <section>
                 <h2>Asercje</h2>
                <pre><code class="java">
-                   import org.junit.Assert;
+import org.junit.Assert;
 
-                   Assert.assertTrue(boolean actual);
-                   Assert.assertFalse(boolean actual);
-                   Assert.assertNotNull(Object actual);
-                   Assert.assertEquals(<> expected, <> actual);
-                   Assert.assertEquals(double expected, double actual, double delta);
+Assert.assertTrue(boolean actual);
+Assert.assertFalse(boolean actual);
+Assert.assertNotNull(Object actual);
+Assert.assertEquals(<> expected, <> actual);
+Assert.assertEquals(double expected, double actual, double delta);
                </code></pre>
             </section>
             <section>
@@ -262,85 +262,84 @@
             <section>
                 <h2>Mockowanie</h2>
                <pre><code class="java">
-                   import org.junit.Assert;
-                   import org.junit.Test;
-                   import org.mockito.Mockito;
+import org.junit.Assert;
+import org.junit.Test;
+import org.mockito.Mockito;
 
-                   import java.util.List;
+import java.util.List;
 
-                   public class MockitoTest {
+public class MockitoTest {
 
-                   @Test
-                   public void shouldMockedListReturnSizeOf2() {
-                   List list = Mockito.mock( List.class);
-                   Mockito.when( list.size() ).thenReturn( 2 );
-                   Assert.assertEquals( 2,list.size() );
-                   }
-                   }
+    @Test
+    public void shouldMockedListReturnSizeOf2() {
+        List list = Mockito.mock( List.class);
+        Mockito.when( list.size() ).thenReturn( 2 );
+        Assert.assertEquals( 2,list.size() );
+    }
+}
                </code></pre>
             </section>
             <section>
                 <h2>Nagrywanie</h2>
                <pre><code class="java">
-                   import org.junit.Assert;
-                   import org.junit.Test;
-                   import org.mockito.Mockito;
+import org.junit.Assert;
+import org.junit.Test;
+import org.mockito.Mockito;
 
-                   import java.util.List;
+import java.util.List;
 
-                   public class MockitoTest {
+public class MockitoTest {
 
-                   @Test
-                   public void shouldMockedListReturnSizeOf2() {
-                   List list = Mockito.mock( List.class);
-                   Mockito.when( list.size() ).thenReturn( 2 );
-                   Assert.assertEquals( 2,list.size() );
-                   }
-                   }
+    @Test
+    public void shouldMockedListReturnSizeOf2() {
+        List list = Mockito.mock( List.class);
+        Mockito.when( list.size() ).thenReturn( 2 );
+        Assert.assertEquals( 2,list.size() );
+    }
+}
                </code></pre>
             </section>
             <section>
                 <h2>Rzucanie wyjątków</h2>
                <pre><code class="java">
-                   @Test( expected = IndexOutOfBoundsException.class )
-                   public void shouldThrowPreviouslyRecordedException(){
-                   List list = Mockito.mock( List.class );
-                   Mockito .when( list.get( 9 ) )
-                   .thenThrow( IndexOutOfBoundsException.class );
-                   try {
-                   list.get( 0 );
-                   }catch( IndexOutOfBoundsException e ){
-                   Assert.fail();
-                   }
-                   list.get( 9 );
-                   }
+@Test( expected = IndexOutOfBoundsException.class )
+public void shouldThrowPreviouslyRecordedException(){
+    List list = Mockito.mock( List.class );
+    Mockito .when( list.get( 9 ) )
+        .thenThrow( IndexOutOfBoundsException.class );
+    try {
+        list.get( 0 );
+    }catch( IndexOutOfBoundsException e ){
+        Assert.fail();
+    }
+    list.get( 9 );
+}
                </code></pre>
             </section>
             <section>
                 <h2>Sprawdzanie wykonania</h2>
                <pre><code class="java">
-                   @Test
-                   public void shouldVerifyIfTheMethodWasCalled()
-                   {
-                   Runnable runnable = Mockito.mock( Runnable.class );
-                   runnable.run();
-                   Mockito.verify( runnable, Mockito.times( 1 ) ).run();
-                   }
+@Test
+public void shouldVerifyIfTheMethodWasCalled()
+{
+    Runnable runnable = Mockito.mock( Runnable.class );
+    runnable.run();
+    Mockito.verify( runnable, Mockito.times( 1 ) ).run();
+}
                </code></pre>
             </section>
             <section>
                 <h2>Szpiegowanie obiektów</h2>
                <pre><code class="java">
-                   @Test
-                   public void shouldVerifyIfTheMethodWasCalled()
-                   {
-                   List&lt;String&gt; list = new ArrayList<>();
-                   List&lt;String&gt; spyList = Mockito.spy( list );
+@Test
+public void shouldVerifyIfTheMethodWasCalled()
+{
+    List&lt;String&gt; list = new ArrayList<>();
+    List&lt;String&gt; spyList = Mockito.spy( list );
+    spyList.add( "test" );
 
-                   spyList.add( "test" );
-
-                   Mockito.verify( spyList ).add( Mockito.anyString() );
-                   }
+    Mockito.verify( spyList ).add( Mockito.anyString() );
+}
                </code></pre>
             </section>
             <section>
@@ -350,6 +349,27 @@
                     <li>Don’t mock value objects</li>
                     <li>Don’t mock everything</li>
                     <li>Show love with your tests!</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Do następnych zajęć (środa, 23:59)</h2>
+            </section>
+            <section>
+                <h2>Uzupełnij testy</h2>
+                <ul>
+                    <li>Napisz testy do 2.Unit_tests</li>
+                    <li>Napisz testy do 3.Mockito_tests</li>
+                </ul>
+            </section>
+            <section>
+                <h2>TDD Bankomat</h2>
+                <ul>
+                    <li>Wypłacanie/wpłacanie gotówki</li>
+                    <li>Dziennik transakcji zapisany w pliku</li>
+                    <li>* Utrzymywanie stanu banknotów</li>
+                    <li>* Wypłacanie w najmniejszej liczbie banknotów</li>
                 </ul>
             </section>
         </section>
