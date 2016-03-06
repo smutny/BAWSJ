@@ -1,18 +1,17 @@
 package pl.edu.amu.bawsj.mockito.d;
 
-import org.junit.Test;
+import org.junit.*;
+import org.mockito.Mockito;
 
 public class ResultProcessorTest
 {
 
     @Test
-    public void shouldNameThisFunctionInACorrectWay()
-    {
-        // given
-        //        ..
-        // when
-        //        ..
-        // then
-        //        ..
+    public void shouldProcessorProvideCorrectAnswerWithMockedProvider() {
+        ResultProvider resultProvider = Mockito.mock(ResultProvider.class);
+        Mockito.when(resultProvider.provide())
+                .thenReturn(22.123);
+        ResultProcessor resultProcessor = new ResultProcessor(resultProvider);
+        Assert.assertEquals("22.123 22.123", resultProcessor.provide());
     }
 }

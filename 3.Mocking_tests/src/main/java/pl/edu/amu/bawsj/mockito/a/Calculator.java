@@ -1,7 +1,6 @@
 package pl.edu.amu.bawsj.mockito.a;
 
-public class Calculator
-{
+public class Calculator {
     private DataProvider dataProvider;
 
     public Calculator( DataProvider dataProvider )

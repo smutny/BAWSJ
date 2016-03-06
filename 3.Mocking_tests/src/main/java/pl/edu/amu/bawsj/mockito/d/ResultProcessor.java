@@ -5,8 +5,7 @@ public class ResultProcessor
 
     private ResultProvider provider;
 
-    ResultProcessor( ResultProvider provider )
-    {
+    ResultProcessor( ResultProvider provider ) {
         this.provider = provider;
     }
 
