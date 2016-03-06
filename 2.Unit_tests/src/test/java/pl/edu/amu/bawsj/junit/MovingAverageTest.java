@@ -15,7 +15,7 @@ public class MovingAverageTest
     public void shouldSupportBigSetOfData()
     {
         MovingAverage movingAverage = new MovingAverage( 3 );
-        for( long i = 0; i < 10000000000l; i++ )
+        for( long i = 0; i < 10000000l; i++ )
         {
             movingAverage.push( 3 );
         }
