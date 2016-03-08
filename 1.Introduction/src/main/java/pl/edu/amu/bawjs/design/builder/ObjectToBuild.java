@@ -1,8 +1,5 @@
 package pl.edu.amu.bawjs.design.builder;
 
-/**
- * Created by mbocian on 2016-02-19.
- */
 public class ObjectToBuild
 {
     private String propertyA;

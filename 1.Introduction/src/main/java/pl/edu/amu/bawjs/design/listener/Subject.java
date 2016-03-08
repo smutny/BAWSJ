@@ -3,9 +3,6 @@ package pl.edu.amu.bawjs.design.listener;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by mbocian on 2016-02-19.
- */
 public class Subject
 {
     List<Listener> listeners = new ArrayList<>();
