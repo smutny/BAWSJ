@@ -2,7 +2,10 @@ configure(subprojects - project(':0.Reveal')) {
     apply plugin: 'java'
     apply plugin: "jacoco"
 
-    repositories { jcenter() }
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
 
     dependencies {
 
@@ -23,9 +26,8 @@ configure(subprojects - project(':0.Reveal')) {
 
         into file("${buildDir}/reveal")
     }
-
-
 }
+
 
 
 
