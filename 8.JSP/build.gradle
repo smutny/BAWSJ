@@ -1,0 +1,126 @@
+// Add some plugins
+
+// I use cargo to deploy to my local install of WildFly
+plugins {
+    id "com.bmuschko.cargo" version "2.2.2"
+    id "com.bmuschko.cargo-base" version "2.2.2"
+}
+
+
+
+repositories {
+
+    jcenter()
+    mavenCentral()
+
+    maven {
+        name "Gradle Repository"
+        url "https://plugins.gradle.org/m2/"
+    }
+
+    maven {
+        name "JBoss Public Maven Repository Group"
+        url "https://repository.jboss.org/nexus/content/groups/public-jboss/"
+    }
+
+    maven {
+        name "Unofficial PrimeFaces Maven Repository"
+        url "http://primefaces.github.io/repository"
+    }
+
+    maven {
+        name "Unofficial PrimeFaces Maven Repository"
+        url "http://unofaces.github.io/repository"
+    }
+
+    maven {
+        name "PrimeFaces Repository"
+        url "http://repository.primefaces.org"
+    }
+}
+
+
+// Gotta have these two as this is a Java EE Web Archive project
+apply plugin: 'java'
+apply plugin: 'war'
+
+// I setup all the versions for my libraries I'm going to use
+// LibraryVersions
+project.ext.cargoVersion = "2.2.2"
+project.ext.wildflyVersion = "10.0.0.Final"
+project.ext.primefacesVersion = "5.2"
+project.ext.primefacesThemeVersion = "1.0.10"
+project.ext.junitVersion = "4.12"
+
+
+// What I want gradle to do by default when I issue the 'gradle' command with no options
+//defaultTasks 'clean', 'test', 'build', 'deployToTestServer'
+
+// Some info about the project
+// Might use as vars later
+description = 'Web Project'
+version = '1.0'
+String appName = 'myProject'
+String vendor = 'My Company, Inc.'
+
+// Let Gradle know I'm using JDK 8
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+// It's good to have several repositories
+
+
+// Setup Project dependencies
+// Notice that my org.wildfly dependencies are 'providedCompile' as I use the Full version of
+// Wildfly-9.0.0.Final which seems to include everything plus the kitchen sink
+// There is lot's of good stuff in wildfly-feature-pack
+dependencies {
+
+// Commons
+//    compile findProject(':aui-common')
+
+// Cargo Plugin Dependencies
+    cargo "org.codehaus.cargo:cargo-ant:${cargoVersion}"
+    cargo "org.codehaus.cargo:cargo-core-uberjar:${cargoVersion}"
+    cargo "org.codehaus.cargo:cargo-core-container-wildfly:${cargoVersion}"
+    cargo 'org.wildfly:wildfly-controller-client:8.2.0.Final'
+
+// WildFly Components
+    providedCompile "org.wildfly:wildfly-spec-api:${wildflyVersion}"
+    providedCompile "org.wildfly:wildfly-feature-pack:${wildflyVersion}"
+
+// PrimeFaces Core and Themes
+    compile "org.primefaces:primefaces:${primefacesVersion}"
+    compile "org.primefaces.themes:home:${primefacesThemeVersion}"
+
+// Unit Testing
+    testCompile "junit:junit:${junitVersion}"
+// Unit Testing Arquillian
+//testCompile "org.jboss.arquillian.junit:arquillian-junit-container:${arquillianVersion}"
+//testCompile "org.jboss.arquillian.protocol:arquillian-protocol-servlet:${arquillianVersion}"
+//testCompile "org.wildfly.arquillian:wildfly-arquillian-container-remote:${wildflyArquillianContainerRemoteVersion}"
+//testCompile "org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-gradle-depchain:${shrinkWrapResolverGradleVersion}"
+
+}
+
+//#####################################################################################################################
+//################################# Package Web App ##################################################################
+//#####################################################################################################################
+war {
+
+    archiveName = project.name + ".war"
+
+    manifest {
+        attributes("Manifest-Version": version,
+                "Created-By": vendor,
+                "Specification-Title": appName,
+                "Specification-Version": version,
+                "Specification-Vendor": vendor,
+                "Implementation-Title": appName,
+                "Implementation-Version": version,
+                "Implementation-Vendor": vendor
+//"Main-Class" : "com.whatever.HelloWorld",
+//"Class-Path" : configurations.compile.collect { it.getName() }.join(' ')
+        )
+    }
+}
