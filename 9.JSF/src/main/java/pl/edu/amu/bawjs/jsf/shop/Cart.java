@@ -1,5 +1,7 @@
 package pl.edu.amu.bawjs.jsf.shop;
 
+import pl.edu.amu.bawjs.jsf.user.User;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.math.BigDecimal;
@@ -14,9 +16,16 @@ import java.util.List;
 public class Cart
 {
     private List<CartItem> items;
+    private User user;
 
-    public Cart(){
+    public Cart(User user){
+        this.user = user;
         items = new ArrayList<>(  );
+    }
+
+    public User getUser()
+    {
+        return user;
     }
 
     public void add( CartItem cartItem )
