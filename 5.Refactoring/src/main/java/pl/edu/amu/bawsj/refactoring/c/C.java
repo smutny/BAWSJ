@@ -11,7 +11,7 @@ public class C
 
     public static void main( String[] args ) throws IOException
     {
-        main1( "Jan" );
+        main1( "Jan", "Lech1", "Artur" );
     }
 
     public static void main1( String... args ) throws IOException
