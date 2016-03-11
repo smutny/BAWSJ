@@ -3,6 +3,7 @@ package pl.edu.amu.bawjs.jsf.shop;
 import pl.edu.amu.bawjs.jsf.user.User;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -16,10 +17,11 @@ import java.util.List;
 public class Cart
 {
     private List<CartItem> items;
+
+    @ManagedProperty(value="#{user}")
     private User user;
 
-    public Cart(User user){
-        this.user = user;
+    public Cart(){
         items = new ArrayList<>(  );
     }
 

@@ -1,6 +1,19 @@
+
+
 apply plugin: 'java'
 apply plugin: 'war'
-apply plugin: 'jetty'
+apply plugin: 'cargo'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-cargo-plugin:1.5.1'
+    }
+}
+//apply plugin: 'jetty'
+
 
 repositories {
     mavenCentral()
@@ -13,4 +26,19 @@ dependencies {
     compile group: "org.primefaces", name: "primefaces", version: "5.0"
     compile group: "com.sun.faces", name: "jsf-api", version: "2.+"
     compile group: "com.sun.faces", name: "jsf-impl", version: "2.+"
+
+    cargo 'org.wildfly:wildfly-controller-client:8.1.0.Final'
+    cargo 'org.codehaus.cargo:cargo-ant:1.4.8'
+
+}
+
+
+cargo {
+    containerId = 'wildfly8x' // I know I'm using 9 but haven't seen this updated yet by cargo project
+
+    remote {
+        hostname = 'localhost'
+        username = 'jls' // Use your WildFly admin username
+        password = 'jls' // Use your Wildfly admin password
+    }
 }
