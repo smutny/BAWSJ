@@ -1,7 +1,6 @@
 package pl.edu.amu.bawsj.refactoring.a;
 
-public class Processor
-{
+public class Processor {
     private boolean close = false;
 
     public void setClose( boolean close )
@@ -9,14 +8,11 @@ public class Processor
         this.close = close;
     }
 
-    public Result process( String a )
-    {
-        if( !close )
-        {
-            return new Result( a );
+    public Result process( String text ) {
+        if( !close ) {
+            return new Result( text );
         }
 
         return new Result( "null" );
-
     }
 }

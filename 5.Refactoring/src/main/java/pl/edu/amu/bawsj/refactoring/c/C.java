@@ -1,5 +1,6 @@
 package pl.edu.amu.bawsj.refactoring.c;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,7 +22,6 @@ public class C
             System.out.println( "Nie podałeś imienia!" );
             return;
         }
-
         InputStream inputStream = C.class.getClassLoader().getResourceAsStream( "imieniny.txt" );
         BufferedReader reader = new BufferedReader( new InputStreamReader( inputStream ) );
 
