@@ -11,11 +11,9 @@ import java.util.List;
  * Created by rafal on 3/13/16.
  */
 public class ImieninyHandler {
-    private List<String> names;
+    private List<String> names = new ArrayList<String>();
 
     public ImieninyHandler(BufferedReader reader) throws IOException{
-        names = new ArrayList<String>();
-
         if (reader == null)
             throw new IllegalArgumentException();
 
