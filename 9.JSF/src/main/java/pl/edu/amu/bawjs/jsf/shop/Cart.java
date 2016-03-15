@@ -5,6 +5,8 @@ import pl.edu.amu.bawjs.jsf.user.User;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,5 +45,15 @@ public class Cart
             sum = sum.add( item.getSubTotal() );
         }
         return sum;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
+    public void addProduct() {
+        String action = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("productName");
+        System.out.println(action);
     }
 }
