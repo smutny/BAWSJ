@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by rafal on 3/13/16.
@@ -46,7 +47,8 @@ public class GoldHandler {
     }
 
     private Date parseDate(String date, String format) throws ParseException {
-        return new SimpleDateFormat(format).parse(date);
+        // tylko  tej jednej rzeczy brakowalo.
+        return new SimpleDateFormat(format, Locale.ENGLISH).parse(date);
     }
 
     public Double biggestAverage() {

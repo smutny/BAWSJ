@@ -12,7 +12,7 @@ public class C
 
     public static void main( String[] args ) throws IOException
     {
-        main1("Jan", "qwqw");
+        main1("Jan", "qwqw", "Jan");
     }
 
     public static void main1( String... args ) throws IOException

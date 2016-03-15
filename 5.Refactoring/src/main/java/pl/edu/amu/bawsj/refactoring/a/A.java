@@ -1,5 +1,7 @@
 package pl.edu.amu.bawsj.refactoring.a;
 
+
+// ok, ale mozna by użyć tutaj wzorca projektowego State
 public class A
 {
     public static void main( String[] args )
