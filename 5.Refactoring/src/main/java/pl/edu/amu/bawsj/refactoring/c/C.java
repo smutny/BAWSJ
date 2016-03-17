@@ -11,7 +11,7 @@ public class C
 
     public static void main( String[] args ) throws IOException
     {
-        main1( "Jan" );
+        main1( "Jan", "Jan" );
     }
 
     public static void main1( String... args ) throws IOException
@@ -25,10 +25,10 @@ public class C
         InputStream inputStream = C.class.getClassLoader().getResourceAsStream( "imieniny.txt" );
         BufferedReader reader = new BufferedReader( new InputStreamReader( inputStream ) );
 
+        boolean found = false;
         mainLoop:
         for( int i = 0; i < args.length; i++ )
         {
-            boolean found = false;
             while( true )
             {
                 String s = reader.readLine();
