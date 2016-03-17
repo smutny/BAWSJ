@@ -35,7 +35,6 @@ public class GoldHandler {
 
     private Gold createGoldFromSplittedInfo(String[] split) throws ParseException {
         Gold gold = new Gold();
-        //TODO
         gold.setDate(parseDate(split[0], "dd-MMM-yyyy"));
         gold.setData1(Double.parseDouble(split[1]));
         gold.setData2(Double.parseDouble(split[2]));
