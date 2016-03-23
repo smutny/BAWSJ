@@ -7,12 +7,14 @@ import java.util.List;
  */
 public class CsvUsersDatabase implements UsersDatabase {
     FileHandler fileHandler;
-    public CsvUsersDatabase() {
+    List<User> users;
 
+    public CsvUsersDatabase(FileHandler fileHandler) {
+        this.fileHandler = fileHandler;
     }
 
     @Override
     public List<User> getAllUsers() {
-        return null;
+        return users;
     }
 }
