@@ -1,11 +1,14 @@
 package pl.edu.amu.bawjs.jsf.shop;
 
+import com.sun.xml.internal.ws.api.model.SEIModel;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * Created by mbocian on 2016-03-11.
  */
-public class CartItem
+public class CartItem implements Serializable
 {
 
     public CartItem( Product product, int quantity )

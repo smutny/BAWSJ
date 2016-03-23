@@ -1,5 +1,6 @@
 package pl.edu.amu.bawsj.refactoring.c;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,7 +12,11 @@ public class C
 
     public static void main( String[] args ) throws IOException
     {
+<<<<<<< HEAD
+        main1("Jan", "qwqw", "Jan");
+=======
         main1( "Jan", "Jan" );
+>>>>>>> remotes/bawsj/budowa-aplikacji-w-rodowisku-java/master
     }
 
     public static void main1( String... args ) throws IOException
@@ -19,15 +24,37 @@ public class C
         InputStream inputStream = C.class.getClassLoader().getResourceAsStream("imieniny.txt");
         BufferedReader reader = new BufferedReader( new InputStreamReader( inputStream ) );
 
+<<<<<<< HEAD
         ImieninyHandler imieninyHandler = new ImieninyHandler(reader);
 
         for (String arg : args) {
             if (imieninyHandler.isNameInReader(arg))
                 System.out.println( arg + " istnieje!" );
-            else
+=======
+        boolean found = false;
+        mainLoop:
+        for( int i = 0; i < args.length; i++ )
+        {
+            while( true )
             {
-                System.out.println( args[ i ] + " nie istnieje!" );
+                String s = reader.readLine();
+                if( s == null )
+                {
+                    break;
+                }
+                if( s.trim().equals( args[ i ].trim() ) )
+                {
+                    found = true;
+                    break;
+                }
             }
+            if( found )
+            {
+                System.out.println( args[ i ] + " istnieje!" );
+            }
+>>>>>>> remotes/bawsj/budowa-aplikacji-w-rodowisku-java/master
+            else
+                System.out.println( arg + " nie istnieje!" );
         }
     }
 }
