@@ -16,17 +16,9 @@ public class A extends Application
     @Override
     public void start( Stage primaryStage ) throws Exception
     {
-        try
-        {
-            Pane root = FXMLLoader.load( getClass()
-                .getResource( "/a.fxml" ) );
+            Pane root = FXMLLoader.load( A.class.getResource("/a.fxml" ) );
             Scene scene = new Scene( root, 400, 400 );
             primaryStage.setScene( scene );
             primaryStage.show();
-        }
-        catch( Exception e )
-        {
-            e.printStackTrace();
-        }
     }
 }

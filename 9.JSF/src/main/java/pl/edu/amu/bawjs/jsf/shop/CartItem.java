@@ -1,7 +1,5 @@
 package pl.edu.amu.bawjs.jsf.shop;
 
-import com.sun.xml.internal.ws.api.model.SEIModel;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 
