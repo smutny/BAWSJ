@@ -1,5 +1,6 @@
 package pl.edu.amu.bawjs.jsf.shop;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -7,12 +8,11 @@ import java.math.BigDecimal;
  */
 public class Product
 {
-
     private String description;
     private String name;
     private BigDecimal price;
 
-    public Product( String description, String name, BigDecimal price )
+    public Product(String name, String description, BigDecimal price)
     {
         this.description = description;
         this.name = name;

@@ -1,0 +1,21 @@
+
+Jako uzytkownik chcialbym zarejestrowac sie jako uzytkownik bankomatu
+	- uzytkownik musi podac login ( alfanumeryczny ) oraz 4 cyfrowy pin
+
+Jako uzytkownik chcialbym zmienic PIN do swojego konta
+	- zmieniony pin nie moze byc taki sam jak poprzedzni
+	- pin musi skladac sie z 4 cyfr
+Jako uzytkownik chcialbym wiedziec ile mam na koncie bankowym
+	- kazdy uzytkownik posiada tylko jedno konto bankowe. bankomat nie moze wyplacic uzytkownikowi wiecej niz ma na koncie. dane uzytkownikow trzymane sa w pliku
+
+Jako uzytkownik chcialbym wyplacac pieniedze z bankomatu
+	- jako wyjście z systemu, korzystajacy z biblioteki otrzymuje listę banknotów
+	- walidacja kwoty mozliwej do wyplaty
+Jako uzytkownik chcialbym wplacac pieniadze do bankomatu
+	- jako wejscie do systemu, korzystajacy z biblioteki podaje listę banknotów
+	- walidacja kwoty mozliwej do wplaty
+
+Jako uzytkownik chcialbym otrzymac wymaganą kwotę w najmniejszej dostępnej liczbie banknotów
+	- algorytm bierze pod uwage liczbę dostępnych bankotów w poszczególnych nominałaś i metodą eager wydaje banknoty w najmniej możliwej liczbie
+
+
