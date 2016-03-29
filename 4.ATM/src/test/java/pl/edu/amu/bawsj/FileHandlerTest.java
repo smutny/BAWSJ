@@ -27,12 +27,7 @@ public class FileHandlerTest {
 
     @Test
     public void shouldParseDataCorrectly() throws IOException {
-//        URL url = this.getClass().getResource("testFile.csv");
-//        File testWsdl = new File(url.getFile());
-//        URL url = getClass().getResource("testFile.csv");
-//        File testFile = new File(getClass().getClassLoader().getResource("testFile.csv").getFile());
-//        File testFile = new File(url.getPath());
-        File testFile = new File("/src/test/resources/testFile.csv");
+        File testFile = new File(this.getClass().getClassLoader().getResource("testFile.csv").getFile());
         FileHandler fileHandler = new FileHandler(testFile, ",");
         List<String[]> data = fileHandler.getData();
         Assert.assertNotNull(data);
