@@ -7,7 +7,16 @@ public class User {
     private String id;
     private String firstName;
     private String lastName;
-    private String pin;
+    private String accountNumber;
+    private String login;
+
+    public User(String id, String firstName, String lastName, String accountNumber, String login) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.accountNumber = accountNumber;
+        this.login = login;
+    }
 
     public String getId() {
         return id;
@@ -33,11 +42,19 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getPin() {
-        return pin;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
-    public void setPin(String pin) {
-        this.pin = pin;
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 }
