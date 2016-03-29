@@ -1,15 +1,11 @@
 package pl.edu.amu.bawsj;
 
-import org.apache.logging.log4j.core.util.IOUtils;
+import org.apache.logging.log4j.core.util.FileUtils;
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mockito;
-import org.mockito.internal.util.io.IOUtil;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
 
@@ -31,9 +27,12 @@ public class FileHandlerTest {
 
     @Test
     public void shouldParseDataCorrectly() throws IOException {
-        URL url = Thread.currentThread().getContextClassLoader().getResource("testFile.csv");
+//        URL url = this.getClass().getResource("testFile.csv");
+//        File testWsdl = new File(url.getFile());
+//        URL url = getClass().getResource("testFile.csv");
 //        File testFile = new File(getClass().getClassLoader().getResource("testFile.csv").getFile());
-        File testFile = new File(url.getPath());
+//        File testFile = new File(url.getPath());
+        File testFile = new File("/src/test/resources/testFile.csv");
         FileHandler fileHandler = new FileHandler(testFile, ",");
         List<String[]> data = fileHandler.getData();
         Assert.assertNotNull(data);

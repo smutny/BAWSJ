@@ -31,7 +31,7 @@ public class CsvUsersDatabase implements UsersDatabase {
     }
 
     private void parseUserAndAddToList(String[] userStringArray) {
-        users.add(new User(userStringArray[0], userStringArray[1], userStringArray[2], userStringArray[3], userStringArray[4]));
+        users.add(new User(userStringArray[0], userStringArray[1], userStringArray[2]));
     }
 
     @Override
@@ -53,12 +53,31 @@ public class CsvUsersDatabase implements UsersDatabase {
     }
 
     @Override
-    public void addUser(User user) throws IOException {
-        if (getUserByLogin(user.getLogin()) != null)
+    public void addUser(String login, String pin) throws IOException {
+        if (getUserByLogin(login) != null)
             throw new RuntimeException();
+        Account account = accountsDatabase.addAccount(pin);
+        User user = new User(findNextId(), account.getAccountNumber(), login);
         users.add(user);
-        fileHandler.addNewRow(user.getId()+","+user.getFirstName()+","+ user.getLastName()+","+user.getAccountNumber()+","+user.getLogin());
+        fileHandler.addNewRow(user.getId()+","+user.getAccountNumber()+","+user.getLogin());
     }
 
+    private String findNextId() {
+        return "1";
+    }
 
+    @Override
+    public double getBalance(String userLogin) {
+        User user = getUserByLogin(userLogin);
+        if (user == null)
+            throw new WrongIdException();
+        Account account = accountsDatabase.getAccountByNumber(user.getAccountNumber());
+
+        return account.getBalance();
+    }
+
+    @Override
+    public double updatePin() {
+        return 0;
+    }
 }

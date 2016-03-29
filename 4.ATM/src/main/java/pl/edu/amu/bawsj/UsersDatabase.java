@@ -9,6 +9,9 @@ import java.util.List;
 public interface UsersDatabase {
     List<User> getAllUsers();
     User getUserByLogin(String login);
+    void addUser(String login, String pin) throws IOException;
 
-    void addUser(User user) throws IOException;
+    double getBalance(String userLogin);
+
+    double updatePin();
 }
