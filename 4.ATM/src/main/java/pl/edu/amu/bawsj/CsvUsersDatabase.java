@@ -12,7 +12,7 @@ public class CsvUsersDatabase implements UsersDatabase {
     private List<User> users;
     private AccountsDatabase accountsDatabase;
 
-    public CsvUsersDatabase(FileHandler fileHandler, AccountsDatabase accountsDatabase) {
+    public CsvUsersDatabase(FileHandler fileHandler, AccountsDatabase accountsDatabase) throws IOException {
         if (fileHandler == null)
             throw new IllegalArgumentException();
 
@@ -22,7 +22,7 @@ public class CsvUsersDatabase implements UsersDatabase {
         initalizeUsers();
     }
 
-    private void initalizeUsers() {
+    private void initalizeUsers() throws IOException {
         List<String[]> usersList = fileHandler.getData();
 
         for (String[] userStringArray : usersList) {
@@ -31,7 +31,8 @@ public class CsvUsersDatabase implements UsersDatabase {
     }
 
     private void parseUserAndAddToList(String[] userStringArray) {
-        users.add(new User(userStringArray[0], userStringArray[1], userStringArray[2]));
+        User user = new User(userStringArray[0], userStringArray[1], userStringArray[2]);
+        users.add(user);
     }
 
     @Override

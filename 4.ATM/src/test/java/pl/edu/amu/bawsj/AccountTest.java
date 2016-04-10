@@ -14,13 +14,14 @@ import static org.junit.Assert.*;
  * Created by rafal on 3/17/16.
  */
 public class AccountTest {
+
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowExceptionIfHandlerIsNull() {
+    public void shouldThrowExceptionIfHandlerIsNull() throws IOException {
         CsvAccountsDatabase csvAccountsDatabase = new CsvAccountsDatabase(null);
     }
 
     @Test
-    public void getAllAccountsShouldReturnAccountsCorrectly() {
+    public void getAllAccountsShouldReturnAccountsCorrectly() throws IOException {
         CsvAccountsDatabase csvAccountsDatabase = prepareCsvAccountsDatabase();
         List<Account> accounts = csvAccountsDatabase.getAllAccounts();
         Account account = accounts.get(0);
@@ -33,7 +34,7 @@ public class AccountTest {
         Assert.assertEquals(333, account.getBalance(), 0.002);
     }
 
-    private CsvAccountsDatabase prepareCsvAccountsDatabase() {
+    private CsvAccountsDatabase prepareCsvAccountsDatabase() throws IOException {
         FileHandler fileHandlerMocked = Mockito.mock(FileHandler.class);
         List<String[]> data = prepareData();
         Mockito.when(fileHandlerMocked.getData()).thenReturn(data);
@@ -56,7 +57,7 @@ public class AccountTest {
     }
 
     @Test
-    public void shouldReturnNullWhenAccountWithGivenNumberDoesntExist() {
+    public void shouldReturnNullWhenAccountWithGivenNumberDoesntExist() throws IOException {
         CsvAccountsDatabase csvAccountsDatabase = prepareCsvAccountsDatabase();
         Account account = csvAccountsDatabase.getAccountByNumber("non-existing-number");
 
@@ -64,7 +65,7 @@ public class AccountTest {
     }
 
     @Test
-    public void shouldReturnCorrectAccountForExistingAccountNumber() {
+    public void shouldReturnCorrectAccountForExistingAccountNumber() throws IOException {
         CsvAccountsDatabase csvAccountsDatabase = prepareCsvAccountsDatabase();
         Account account = csvAccountsDatabase.getAccountByNumber("2123123");
         Assert.assertNotNull(account);

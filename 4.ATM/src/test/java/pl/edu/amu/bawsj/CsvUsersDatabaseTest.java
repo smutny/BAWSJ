@@ -15,7 +15,7 @@ import java.util.List;
 public class CsvUsersDatabaseTest {
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowExceptionIfHandlerIsNull() {
+    public void shouldThrowExceptionIfHandlerIsNull() throws IOException {
         AccountsDatabase accountsDatabase = Mockito.mock(AccountsDatabase.class);
         CsvUsersDatabase csvUsersDatabase = new CsvUsersDatabase(null, accountsDatabase);
     }

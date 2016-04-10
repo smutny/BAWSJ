@@ -11,7 +11,7 @@ import java.util.Random;
 public class CsvAccountsDatabase implements AccountsDatabase {
     FileHandler fileHandler;
     List<Account> accounts;
-    public CsvAccountsDatabase(FileHandler fileHandler) {
+    public CsvAccountsDatabase(FileHandler fileHandler) throws IOException {
         if (fileHandler == null)
             throw new IllegalArgumentException();
 
@@ -20,7 +20,7 @@ public class CsvAccountsDatabase implements AccountsDatabase {
         initalizeAccounts();
     }
 
-    private void initalizeAccounts() {
+    private void initalizeAccounts() throws IOException {
         List<String[]> accountsList = fileHandler.getData();
 
         for (String[] accountStringArray : accountsList) {
