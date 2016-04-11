@@ -1,13 +1,11 @@
-package pl.edu.amu.bawsj;
+package pl.edu.amu.bawsj.databases;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
+import pl.edu.amu.bawsj.utils.FileHandler;
+import pl.edu.amu.bawsj.domain.Note;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Pattern;
 
 /**
@@ -20,6 +18,7 @@ public class CsvNotesDatabase implements NotesDatabase {
         this.fileHandler = fileHandler;
     }
 
+    @Override
     public Map<Integer, List<Note>> getAllNotes() throws ParseException, IOException {
         Map<Integer, List<Note>> notes = new HashMap<>();
         List<String[]> data = fileHandler.getData();
@@ -41,7 +40,7 @@ public class CsvNotesDatabase implements NotesDatabase {
         int value = Integer.parseInt(noteValue);
         int quantity = Integer.parseInt(numberOfNotes);
         List<Note> notes = new ArrayList<>();
-        for (int i=0; i<quantity; i++) {
+        for (int i = 0; i < quantity; i++) {
             notes.add(new Note(value));
         }
         return notes;
@@ -65,10 +64,25 @@ public class CsvNotesDatabase implements NotesDatabase {
             String value = Integer.toString(noteValue);
             String oldAmount = Integer.toString(getAllNotes().get(noteValue).size());
             String newAmount = Integer.toString(amount);
-            fileHandler.replaceTextInFile(value+","+oldAmount+"\n", value+","+newAmount+"\n");
+            if (fileHandler.hasLineWithPrefix(value))
+                fileHandler.replaceTextInFile(value + "," + oldAmount, value + "," + newAmount);
+//            else
+//                fileHandler.addNewRow(value+","+newAmount);
         } else {
             throw new IllegalArgumentException();
         }
+    }
+
+    @Override
+    public void substractNote(int noteValue) throws IOException, ParseException {
+        Map<Integer, List<Note>> allNotes = getAllNotes();
+        if (!allNotes.containsKey(noteValue)) {
+            throw new NoSuchElementException();
+        }
+
+        int size = allNotes.get(noteValue).size();
+        int notesAmountAfterSubstraction = size - 1;
+        fileHandler.replaceTextInFile(noteValue+","+size, noteValue+","+notesAmountAfterSubstraction);
     }
 
     private boolean isNoteValueValid(int noteValue) throws ParseException, IOException {

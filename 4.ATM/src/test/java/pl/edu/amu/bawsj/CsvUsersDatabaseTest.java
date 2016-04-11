@@ -3,8 +3,11 @@ package pl.edu.amu.bawsj;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
+import pl.edu.amu.bawsj.databases.AccountsDatabase;
+import pl.edu.amu.bawsj.databases.CsvUsersDatabase;
+import pl.edu.amu.bawsj.domain.User;
+import pl.edu.amu.bawsj.utils.FileHandler;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

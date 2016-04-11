@@ -1,4 +1,4 @@
-package pl.edu.amu.bawsj;
+package pl.edu.amu.bawsj.utils;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -61,5 +61,13 @@ public class FileHandler {
             }
         }
         Files.write(file.toPath(), newLines, StandardCharsets.UTF_8);
+    }
+
+    public boolean hasLineWithPrefix(String prefix) throws IOException {
+        for (String line : Files.readAllLines(file.toPath(), StandardCharsets.UTF_8)) {
+            if (line.startsWith(prefix))
+                return true;
+        }
+        return false;
     }
 }

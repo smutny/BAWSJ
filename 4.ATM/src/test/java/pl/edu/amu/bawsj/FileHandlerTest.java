@@ -1,13 +1,12 @@
 package pl.edu.amu.bawsj;
 
-import org.apache.logging.log4j.core.util.FileUtils;
 import org.junit.Assert;
 import org.junit.Test;
+import pl.edu.amu.bawsj.utils.FileHandler;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 
 /**
@@ -17,7 +16,7 @@ public class FileHandlerTest {
     private final String TEST_FILE_PATH = "/home/rafal/Projects/budowa-aplikacji-w-rodowisku-java/files/testFile.csv";
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowExceptionIfBufferedReaderIsNull() throws IOException {
+    public void shouldThrowExceptionIfFileIsNull() throws IOException {
         new FileHandler(null, ",");
     }
 

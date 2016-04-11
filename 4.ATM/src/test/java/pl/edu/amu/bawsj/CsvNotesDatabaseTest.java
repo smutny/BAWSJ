@@ -2,13 +2,16 @@ package pl.edu.amu.bawsj;
 
 import org.junit.*;
 import org.mockito.Mockito;
-import sun.security.pkcs.ParsingException;
+import pl.edu.amu.bawsj.databases.CsvNotesDatabase;
+import pl.edu.amu.bawsj.databases.NotesDatabase;
+import pl.edu.amu.bawsj.domain.Note;
+import pl.edu.amu.bawsj.utils.FileHandler;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by rafal on 4/8/16.
@@ -20,7 +23,7 @@ public class CsvNotesDatabaseTest {
     public void shouldThrowExceptionIfFileIsNotParsable() throws ParseException, IOException {
         FileHandler fileHandlerMocked = Mockito.mock(FileHandler.class);
         Mockito.when(fileHandlerMocked.getData()).thenReturn(mockIncorrectData());
-        CsvNotesDatabase csvNotesDatabase = new CsvNotesDatabase(fileHandlerMocked);
+        NotesDatabase csvNotesDatabase = new CsvNotesDatabase(fileHandlerMocked);
         csvNotesDatabase.getAllNotes();
     }
 
@@ -39,7 +42,7 @@ public class CsvNotesDatabaseTest {
 
     @Test
     public void shouldReturnNotesCorrectly() throws ParseException, IOException {
-        CsvNotesDatabase csvNotesDatabase = prepareCsvNotesDatabase();
+        NotesDatabase csvNotesDatabase = prepareCsvNotesDatabase();
         Map<Integer, List<Note>> allNotes = csvNotesDatabase.getAllNotes();
         Assert.assertNotNull(allNotes);
         Assert.assertEquals(true, allNotes.containsKey(10));
@@ -71,8 +74,44 @@ public class CsvNotesDatabaseTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldAddNoteMethodThrowExceptionForNoteValueNonExistingInDatabase() throws ParseException, IOException {
-        CsvNotesDatabase csvNotesDatabase = prepareCsvNotesDatabase();
+        NotesDatabase csvNotesDatabase = prepareCsvNotesDatabase();
         csvNotesDatabase.addNotes(3, 2);
+    }
+
+    @Test
+    public void shouldAddNoteCorrectly() throws IOException, ParseException {
+        NotesDatabase csvNotesDatabaseWithRealFile = createCsvNotesDatabaseWithRealFile();
+        csvNotesDatabaseWithRealFile.addNotes(10, 3);
+        csvNotesDatabaseWithRealFile.addNotes(20, 5);
+        Map<Integer, List<Note>> notes = csvNotesDatabaseWithRealFile.getAllNotes();
+        Assert.assertEquals(3, notes.get(10).size());
+        Assert.assertEquals(5, notes.get(20).size());
+    }
+
+    private NotesDatabase createCsvNotesDatabaseWithRealFile() throws IOException {
+        File file = Files.createTempFile("test", ".csv").toFile();
+        FileHandler fileHandler = new FileHandler(file, ",");
+        fileHandler.addNewRow("10,0");
+        fileHandler.addNewRow("20,0");
+        fileHandler.addNewRow("50,0");
+        NotesDatabase csvNotesDatabase = new CsvNotesDatabase(fileHandler);
+        System.out.println(file.getAbsolutePath());
+        return csvNotesDatabase;
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void shouldThrowExceptionWhenNoGivenNoteIsAvaliableInSubstractNoteMethod() throws IOException, ParseException {
+        NotesDatabase csvNotesDatabase = prepareCsvNotesDatabase();
+        csvNotesDatabase.substractNote(300);
+    }
+
+    @Test
+    public void shouldSubstractNoteCorrectly() throws IOException, ParseException {
+        NotesDatabase csvNotesDatabaseWithRealFile = createCsvNotesDatabaseWithRealFile();
+        csvNotesDatabaseWithRealFile.addNotes(10, 3);
+        int size = csvNotesDatabaseWithRealFile.getAllNotes().get(10).size();
+        csvNotesDatabaseWithRealFile.substractNote(10);
+        Assert.assertEquals(size-1, csvNotesDatabaseWithRealFile.getAllNotes().get(10).size());
     }
 
 }

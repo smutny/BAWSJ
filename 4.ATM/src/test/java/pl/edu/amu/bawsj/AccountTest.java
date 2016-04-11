@@ -3,12 +3,12 @@ package pl.edu.amu.bawsj;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
+import pl.edu.amu.bawsj.databases.CsvAccountsDatabase;
+import pl.edu.amu.bawsj.utils.FileHandler;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by rafal on 3/17/16.

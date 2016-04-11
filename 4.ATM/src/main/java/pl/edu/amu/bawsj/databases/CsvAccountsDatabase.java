@@ -1,4 +1,7 @@
-package pl.edu.amu.bawsj;
+package pl.edu.amu.bawsj.databases;
+
+import pl.edu.amu.bawsj.Account;
+import pl.edu.amu.bawsj.utils.FileHandler;
 
 import java.io.IOException;
 import java.util.ArrayList;
