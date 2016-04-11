@@ -4,10 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 import pl.edu.amu.bawsj.databases.NotesDatabase;
-import pl.edu.amu.bawsj.domain.Card;
 import pl.edu.amu.bawsj.domain.Note;
 import pl.edu.amu.bawsj.exceptions.NotEnoughMoneyException;
 import pl.edu.amu.bawsj.exceptions.NotEnoughNotesException;
+import pl.edu.amu.bawsj.utils.DefaultWithdrawingStrategy;
 
 import java.io.IOException;
 import java.text.ParseException;

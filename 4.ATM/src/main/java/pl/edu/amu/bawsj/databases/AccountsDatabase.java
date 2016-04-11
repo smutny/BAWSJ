@@ -1,6 +1,6 @@
 package pl.edu.amu.bawsj.databases;
 
-import pl.edu.amu.bawsj.Account;
+import pl.edu.amu.bawsj.domain.Account;
 
 import java.io.IOException;
 import java.util.List;

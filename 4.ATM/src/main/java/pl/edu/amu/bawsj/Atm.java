@@ -8,6 +8,8 @@ import pl.edu.amu.bawsj.exceptions.AnotherCardInsertedException;
 import pl.edu.amu.bawsj.exceptions.NotEnoughMoneyException;
 import pl.edu.amu.bawsj.exceptions.NotEnoughNotesException;
 import pl.edu.amu.bawsj.exceptions.WrongPinException;
+import pl.edu.amu.bawsj.utils.DefaultWithdrawingStrategy;
+import pl.edu.amu.bawsj.utils.WithdrawingStrategy;
 
 import java.io.IOException;
 import java.text.ParseException;

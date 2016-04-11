@@ -1,4 +1,4 @@
-package pl.edu.amu.bawsj;
+package pl.edu.amu.bawsj.utils;
 
 import pl.edu.amu.bawsj.domain.Card;
 import pl.edu.amu.bawsj.domain.Note;

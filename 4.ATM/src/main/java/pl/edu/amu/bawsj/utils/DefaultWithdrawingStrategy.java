@@ -1,10 +1,7 @@
-package pl.edu.amu.bawsj;
+package pl.edu.amu.bawsj.utils;
 
-import pl.edu.amu.bawsj.databases.CardDatabase;
 import pl.edu.amu.bawsj.databases.NotesDatabase;
-import pl.edu.amu.bawsj.domain.Card;
 import pl.edu.amu.bawsj.domain.Note;
-import pl.edu.amu.bawsj.exceptions.NotEnoughMoneyException;
 import pl.edu.amu.bawsj.exceptions.NotEnoughNotesException;
 
 import java.io.IOException;
@@ -12,12 +9,11 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * Created by rafal on 3/17/16.
  */
-public class DefaultWithdrawingStrategy implements WithdrawingStrategy{
+public class DefaultWithdrawingStrategy implements WithdrawingStrategy {
 
     private NotesDatabase notesDatabase;
 

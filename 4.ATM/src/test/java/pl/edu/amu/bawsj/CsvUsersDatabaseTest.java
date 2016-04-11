@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import pl.edu.amu.bawsj.databases.AccountsDatabase;
 import pl.edu.amu.bawsj.databases.CsvUsersDatabase;
+import pl.edu.amu.bawsj.domain.Account;
 import pl.edu.amu.bawsj.domain.User;
 import pl.edu.amu.bawsj.utils.FileHandler;
 

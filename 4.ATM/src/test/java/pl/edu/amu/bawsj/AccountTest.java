@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 import pl.edu.amu.bawsj.databases.CsvAccountsDatabase;
+import pl.edu.amu.bawsj.domain.Account;
 import pl.edu.amu.bawsj.utils.FileHandler;
 
 import java.io.IOException;

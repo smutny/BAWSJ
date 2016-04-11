@@ -1,4 +1,4 @@
-package pl.edu.amu.bawsj;
+package pl.edu.amu.bawsj.utils;
 
 /**
  * Created by rafal on 3/17/16.
