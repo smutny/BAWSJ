@@ -21,10 +21,10 @@ import java.text.ParseException;
  * Created by Rafa³ on 2016-04-12.
  */
 public class LoginView extends FlowPane {
-    private Stage loginStage;
+    private final Stage loginStage;
     private Parent parent;
-    private LoginPresenter loginPresenter;
-    private AtmMainView atmMainView;
+    private final LoginPresenter loginPresenter;
+    private final AtmMainView atmMainView;
 
     public LoginView(Atm atm, AtmMainView atmMainView) {
         this.atmMainView = atmMainView;

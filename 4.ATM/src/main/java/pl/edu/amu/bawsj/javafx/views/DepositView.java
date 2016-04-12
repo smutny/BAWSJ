@@ -16,10 +16,10 @@ import java.text.ParseException;
  * Created by Rafa³ on 2016-04-12.
  */
 public class DepositView {
-    private Atm atm;
-    private Stage depositStage;
+    private final Atm atm;
+    private final Stage depositStage;
     private Parent parent;
-    private DepositPresenter depositPresenter;
+    private final DepositPresenter depositPresenter;
     private TextField tenField;
     private TextField twentyField;
     private TextField fiftyField;

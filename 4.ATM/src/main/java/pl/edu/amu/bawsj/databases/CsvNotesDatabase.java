@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * Created by rafal on 4/8/16.
  */
 public class CsvNotesDatabase implements NotesDatabase {
-    FileHandler fileHandler;
+    private final FileHandler fileHandler;
 
     public CsvNotesDatabase(FileHandler fileHandler) {
         this.fileHandler = fileHandler;

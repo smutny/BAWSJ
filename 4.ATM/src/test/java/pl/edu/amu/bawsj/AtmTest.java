@@ -29,7 +29,7 @@ public class AtmTest {
         atm.login("123342342342", 1234);
     }
 
-    private Atm prepareAtmInstance() throws IOException, ParseException, WrongPinException {
+    private Atm prepareAtmInstance() throws IOException, ParseException {
         CardDatabase cardDatabaseMocked = mockCardDatabase();
         NotesDatabase notesDatabaseMocked = Mockito.mock(NotesDatabase.class);
         Mockito.when(notesDatabaseMocked.getAllNotes()).thenReturn(prepareNotes());

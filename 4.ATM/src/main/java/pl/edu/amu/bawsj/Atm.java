@@ -17,18 +17,14 @@ import java.util.List;
  */
 public class Atm {
     private Card currentCard;
-    private CardDatabase cardDatabase;
-    private NotesDatabase notesDatabase;
+    private final CardDatabase cardDatabase;
+    private final NotesDatabase notesDatabase;
     private WithdrawingStrategy withdrawingStrategy;
 
     public Atm(CardDatabase cardDatabase, NotesDatabase notesDatabase) {
         this.cardDatabase = cardDatabase;
         this.notesDatabase = notesDatabase;
         withdrawingStrategy = new DefaultWithdrawingStrategy(notesDatabase);
-    }
-
-    public void setWithdrawingStrategy(WithdrawingStrategy withdrawingStrategy) {
-        this.withdrawingStrategy = withdrawingStrategy;
     }
 
     public void login(String cardNumber, int pin) throws IOException, ParseException, WrongPinException, AnotherCardInsertedException {

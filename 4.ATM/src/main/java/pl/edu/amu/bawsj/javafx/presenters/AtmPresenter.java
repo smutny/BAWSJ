@@ -27,12 +27,11 @@ import java.util.regex.Pattern;
  */
 public class AtmPresenter {
     private Atm atm;
-    private AtmMainView atmMainView;
-    private Logger logger = LogManager.getLogger();
+    private final AtmMainView atmMainView;
+    private final Logger logger = LogManager.getLogger();
     private final String LOGOUT_TEXT = "Wylogowano";
 
     public AtmPresenter(AtmMainView atmMainView) {
-//        atm = new Atm();
         this.atmMainView = atmMainView;
     }
 

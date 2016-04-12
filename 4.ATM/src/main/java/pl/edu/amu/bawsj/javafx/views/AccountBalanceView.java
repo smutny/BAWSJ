@@ -12,7 +12,7 @@ import java.io.IOException;
  * Created by Rafa³ on 2016-04-12.
  */
 public class AccountBalanceView {
-    private Stage accountBalanceStage;
+    private final Stage accountBalanceStage;
     private Parent parent;
 
     public AccountBalanceView(String balanceText) {

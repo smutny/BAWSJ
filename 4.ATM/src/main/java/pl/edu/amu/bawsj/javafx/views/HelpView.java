@@ -12,8 +12,8 @@ import java.io.IOException;
  * Created by Rafa³ on 2016-04-12.
  */
 public class HelpView extends Pane {
-    Stage helpStage;
-    Parent parent;
+    private final Stage helpStage;
+    private Parent parent;
 
     public HelpView() {
         helpStage = new Stage();

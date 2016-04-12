@@ -17,8 +17,8 @@ import java.util.Map;
  * Created by Rafa³ on 2016-04-12.
  */
 public class WithdrawView extends VBox {
-    Stage withdrawStage;
-    Parent parent;
+    private final Stage withdrawStage;
+    private Parent parent;
 
     public WithdrawView(List<Note> notes) {
         withdrawStage = new Stage();

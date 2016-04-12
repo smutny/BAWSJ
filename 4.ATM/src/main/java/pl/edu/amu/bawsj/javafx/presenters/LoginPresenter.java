@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
  * Created by Rafa³ on 2016-04-11.
  */
 public class LoginPresenter {
-    private Atm atm;
-    private LoginView loginView;
+    private final Atm atm;
+    private final LoginView loginView;
 
     public LoginPresenter(Atm atm, LoginView loginView) {
         this.loginView = loginView;

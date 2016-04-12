@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class DefaultWithdrawingStrategy implements WithdrawingStrategy {
 
-    private NotesDatabase notesDatabase;
+    private final NotesDatabase notesDatabase;
 
     public DefaultWithdrawingStrategy(NotesDatabase notesDatabase) {
         this.notesDatabase = notesDatabase;

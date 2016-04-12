@@ -21,7 +21,6 @@ import java.util.NoSuchElementException;
  * Created by rafal on 4/8/16.
  */
 public class CsvNotesDatabaseTest {
-    private final String NOTES_TEST_FILE_PATH = "/home/rafal/Projects/budowa-aplikacji-w-rodowisku-java/files/testNotes.csv";
 
     @Test(expected = ParseException.class)
     public void shouldThrowExceptionIfFileIsNotParsable() throws ParseException, IOException {
@@ -57,7 +56,7 @@ public class CsvNotesDatabaseTest {
     }
 
 
-    private CsvNotesDatabase prepareCsvNotesDatabase() throws IOException, ParseException {
+    private CsvNotesDatabase prepareCsvNotesDatabase() throws IOException {
         FileHandler fileHandlerMocked = Mockito.mock(FileHandler.class);
         Mockito.when(fileHandlerMocked.getData()).thenReturn(mockData());
         return new CsvNotesDatabase(fileHandlerMocked);

@@ -12,15 +12,12 @@ import java.util.regex.Pattern;
  * Created by rafal on 4/10/16.
  */
 public class CsvCardDatabase implements CardDatabase{
-    FileHandler fileHandler;
+    private FileHandler fileHandler;
 
     public CsvCardDatabase(FileHandler fileHandler) {
         this.fileHandler = fileHandler;
     }
 
-    public void setFileHandler(FileHandler fileHandler) {
-        this.fileHandler = fileHandler;
-    }
 
     @Override
     public Card findCardByNumber(String cardNumber) throws IOException, ParseException, WrongIdException{

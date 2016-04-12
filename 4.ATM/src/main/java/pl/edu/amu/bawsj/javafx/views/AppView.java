@@ -16,11 +16,11 @@ import java.io.IOException;
  * Created by Rafa� on 2016-04-11.
  */
 public class AppView extends VBox {
-    private Stage appStage;
+    private final Stage appStage;
     private Parent parent;
     private final String NOTES_FILE_CHOOSER_TEXT = "Please pick notes file";
     private final String CARDS_FILE_CHOOSER_TEXT = "Please pick cards file";
-    private PropertiesHandler propertiesHandler;
+    private final PropertiesHandler propertiesHandler;
 
     public AppView() {
         propertiesHandler = PropertiesHandler.getInstance();

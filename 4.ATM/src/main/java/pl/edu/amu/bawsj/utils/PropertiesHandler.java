@@ -8,8 +8,8 @@ import java.util.Properties;
  */
 public class PropertiesHandler {
     private static PropertiesHandler propertiesHandler;
-    String cardsFile;
-    String notesFile;
+    private String cardsFile;
+    private String notesFile;
     Properties prop = new Properties();
     OutputStream fileOutputStream;
     String propertiesFileName = "properties.properties";

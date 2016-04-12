@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  * Created by Rafa³ on 2016-04-12.
  */
 public class DepositPresenter {
-    Atm atm;
+    private final Atm atm;
 
     public DepositPresenter(Atm atm) {
         this.atm = atm;
