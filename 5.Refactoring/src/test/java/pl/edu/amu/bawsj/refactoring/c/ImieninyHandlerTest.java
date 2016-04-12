@@ -1,6 +1,7 @@
 package pl.edu.amu.bawsj.refactoring.c;
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.io.BufferedReader;

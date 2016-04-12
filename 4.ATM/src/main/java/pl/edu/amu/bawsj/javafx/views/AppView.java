@@ -11,7 +11,6 @@ import pl.edu.amu.bawsj.utils.PropertiesHandler;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 /**
  * Created by Rafa� on 2016-04-11.
@@ -28,8 +27,8 @@ public class AppView extends VBox {
         appStage = new Stage();
         try {
             parent = FXMLLoader.load(AtmMainView.class.getResource("/views/App.fxml"));
-            initiliazeButtons();
             Scene scene = new Scene(parent);
+            initiliazeButtons();
             appStage.setScene(scene);
             appStage.show();
         } catch (IOException e) {
@@ -50,11 +49,7 @@ public class AppView extends VBox {
             File selectedFile = chooser.showOpenDialog(appStage);
 
             if (selectedFile != null) {
-                try {
-                    propertiesHandler.setProperty("notesFile", selectedFile.getAbsolutePath());
-                } catch (IOException e) {
-                    throw new RuntimeException("Failed to load properties file");
-                }
+                propertiesHandler.setNotesFileUrl(selectedFile.getAbsolutePath());
             }
         });
 
@@ -65,11 +60,7 @@ public class AppView extends VBox {
             chooser.getExtensionFilters().add(csvFilter);
             File selectedFile = chooser.showOpenDialog(appStage);
             if (selectedFile != null) {
-                try {
-                    propertiesHandler.setProperty("cardsFile", selectedFile.getAbsolutePath());
-                } catch (IOException e) {
-                    throw new RuntimeException("Failed to load properties file");
-                }
+                propertiesHandler.setCardsFileUrl(selectedFile.getAbsolutePath());
             }
         });
 

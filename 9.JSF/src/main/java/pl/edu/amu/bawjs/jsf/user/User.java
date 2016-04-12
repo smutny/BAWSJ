@@ -1,9 +1,6 @@
 package pl.edu.amu.bawjs.jsf.user;
 
-import pl.edu.amu.bawjs.jsf.shop.Cart;
-
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 

@@ -11,9 +11,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pl.edu.amu.bawsj.javafx.presenters.AtmPresenter;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-
 
 /**
  * Created by Rafa³ on 2016-04-11.
@@ -56,31 +53,22 @@ public class AtmMainView extends Application {
         }
 
         Button deleteButton = (Button)root.lookup("#deleteButton");
-        Button okButton = (Button)root.lookup("#okButton");
         Button withdrawButton = (Button)root.lookup("#withdrawButton");
         Button depositButton = (Button)root.lookup("#depositButton");
         Button appButton = (Button)root.lookup("#appButton");
         Button helpButton = (Button)root.lookup("#helpButton");
         Button loginButton = (Button)root.lookup("#loginButton");
         Button logoutButton = (Button)root.lookup("#logoutButton");
+        Button accountBalanceButton = (Button)root.lookup("#accountBalanceButton");
 
         deleteButton.setOnMouseClicked(event -> atmPresenter.deleteButtonClicked());
-        okButton.setOnMouseClicked(event -> atmPresenter.okButtonClicked());
         withdrawButton.setOnMouseClicked(event -> atmPresenter.withdrawButtonClicked());
         depositButton.setOnMouseClicked(event -> atmPresenter.depositButtonClicked());
-        appButton.setOnMouseClicked(event -> openAppButton());
+        appButton.setOnMouseClicked(event -> atmPresenter.appButtonClicked());
         helpButton.setOnMouseClicked(event -> atmPresenter.helpButtonClicked());
         loginButton.setOnMouseClicked(event -> atmPresenter.loginButtonClicked());
         logoutButton.setOnMouseClicked(event -> atmPresenter.logoutButtonClicked());
-    }
-
-    private void openAppButton() {
-        Stage appStage = new Stage();
-        try {
-            new AppView();
-        } catch (RuntimeException ex) {
-            screenLabel.setText(ex.getMessage());
-        }
+        accountBalanceButton.setOnMouseClicked(event -> atmPresenter.accountBalanceButtonClicked());
     }
 
     private void initalizeViews() {

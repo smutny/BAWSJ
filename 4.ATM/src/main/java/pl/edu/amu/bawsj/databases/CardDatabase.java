@@ -11,4 +11,5 @@ import java.text.ParseException;
 public interface CardDatabase {
     Card findCardByNumber(String cardNumber) throws IOException, ParseException;
     void substractMoneyFromCard(Card card, int amount) throws IOException;
+    void addMoneyToCard(Card card, double amount) throws IOException;
 }

@@ -1,6 +1,7 @@
 package pl.edu.amu.bawsj;
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
 import pl.edu.amu.bawsj.databases.CsvNotesDatabase;
 import pl.edu.amu.bawsj.databases.NotesDatabase;
@@ -11,7 +12,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.text.ParseException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 
 /**
  * Created by rafal on 4/8/16.

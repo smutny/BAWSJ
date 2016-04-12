@@ -25,4 +25,8 @@ public class Card {
     public double getCashAmount() {
         return cashAmount;
     }
+
+    public void setCashAmount(double cashAmount) {
+        this.cashAmount = cashAmount;
+    }
 }

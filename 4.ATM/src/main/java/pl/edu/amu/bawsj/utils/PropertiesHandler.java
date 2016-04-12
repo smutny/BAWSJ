@@ -1,8 +1,6 @@
 package pl.edu.amu.bawsj.utils;
 
-import java.io.*;
-import java.net.URISyntaxException;
-import java.net.URL;
+import java.io.OutputStream;
 import java.util.Properties;
 
 /**
@@ -10,20 +8,13 @@ import java.util.Properties;
  */
 public class PropertiesHandler {
     private static PropertiesHandler propertiesHandler;
-
+    String cardsFile;
+    String notesFile;
     Properties prop = new Properties();
     OutputStream fileOutputStream;
     String propertiesFileName = "properties.properties";
 
     private PropertiesHandler() {
-//        InputStream propertiesStream = PropertiesHandler.class.getClassLoader().getResourceAsStream(propertiesFileName);
-//        URL resourceUrl = PropertiesHandler.class.getClassLoader().getResource(propertiesFileName);
-//        File file = new File(resourceUrl.toURI().toString());
-//        FileInputStream fileInputStream = new FileInputStream(propertiesFileName);
-//        prop.load(fileInputStream);
-//        fileOutputStream = new FileOutputStream(propertiesFileName);
-//        FileOutputStream fileOutputStream = PropertiesHandler.class.getClassLoader().get("properties.properties");
-//        prop.load(propertiesStream);
     }
 
     public static PropertiesHandler getInstance() {
@@ -32,16 +23,27 @@ public class PropertiesHandler {
         return propertiesHandler;
     }
 
-    public void setProperty(String propertyName, String value) throws IOException {
-        prop.setProperty(propertyName, value);
-        prop.store(fileOutputStream, null);
+    public void setCardsFileUrl(String url) {
+        cardsFile = url;
     }
 
-    public String getProperty(String propertyName) {
-        return prop.getProperty(propertyName);
+    public void setNotesFileUrl(String url) {
+        notesFile = url;
     }
 
-    public boolean propertyExists(String propertyName) {
-        return getProperty(propertyName) != null;
+    public String getCardsFile() {
+        return cardsFile;
+    }
+
+    public String getNotesFile() {
+        return notesFile;
+    }
+
+    public boolean isCardsFileSet() {
+        return cardsFile != null;
+    }
+
+    public boolean isNotesFileSet() {
+        return notesFile != null;
     }
 }

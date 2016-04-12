@@ -1,7 +1,6 @@
 package pl.edu.amu.bawsj;
 
 import org.junit.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import pl.edu.amu.bawsj.databases.CardDatabase;
 import pl.edu.amu.bawsj.databases.CsvCardDatabase;

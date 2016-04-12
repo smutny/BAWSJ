@@ -2,7 +2,6 @@ package pl.edu.amu.bawsj.junit;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.OptionalDouble;
 
 public class MovingAverage
 {

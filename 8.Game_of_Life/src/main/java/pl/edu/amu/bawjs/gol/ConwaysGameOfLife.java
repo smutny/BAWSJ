@@ -2,13 +2,7 @@ package pl.edu.amu.bawjs.gol;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;

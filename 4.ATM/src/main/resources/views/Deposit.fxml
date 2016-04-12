@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="163.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label prefHeight="85.0" prefWidth="426.0" text="Otrzymałeś" />
-      <SplitPane dividerPositions="0.5" prefHeight="58.0" prefWidth="375.0">
+      <Label prefHeight="85.0" prefWidth="426.0" text="Podaj liczbe banknotów do wpłacenia" />
+      <SplitPane dividerPositions="0.5013404825737265" prefHeight="58.0" prefWidth="375.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="282.0">
                <children>
@@ -15,7 +14,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="259.0">
                <children>
-                  <Label fx:id="tenLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="Label" />
+                  <TextField fx:id="tenLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="0" />
                </children>
             </AnchorPane>
         </items>
@@ -29,7 +28,7 @@
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="259.0">
                <children>
-                  <Label fx:id="twentyLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="Label" />
+                  <TextField fx:id="twentyLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="0" />
                </children>
             </AnchorPane>
          </items>
@@ -43,7 +42,7 @@
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="259.0">
                <children>
-                  <Label fx:id="fiftyLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="Label" />
+                  <TextField fx:id="fiftyLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="0" />
                </children>
             </AnchorPane>
          </items>
@@ -57,7 +56,7 @@
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="259.0">
                <children>
-                  <Label fx:id="hundredLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="Label" />
+                  <TextField fx:id="hundredLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="0" />
                </children>
             </AnchorPane>
          </items>
@@ -69,12 +68,13 @@
                   <Label layoutX="33.0" layoutY="2.0" text="Ilość banknotów 200 zł" />
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="259.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="36.0" prefWidth="182.0">
                <children>
-                  <Label fx:id="twoHundredLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="Label" />
+                  <TextField fx:id="twoHundredLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="0" />
                </children>
             </AnchorPane>
          </items>
       </SplitPane>
+      <Button fx:id="depositButton" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="411.0" text="Wpłać" textAlignment="RIGHT" />
    </children>
 </VBox>

@@ -4,10 +4,7 @@ import pl.edu.amu.bawsj.databases.CardDatabase;
 import pl.edu.amu.bawsj.databases.NotesDatabase;
 import pl.edu.amu.bawsj.domain.Card;
 import pl.edu.amu.bawsj.domain.Note;
-import pl.edu.amu.bawsj.exceptions.AnotherCardInsertedException;
-import pl.edu.amu.bawsj.exceptions.NotEnoughMoneyException;
-import pl.edu.amu.bawsj.exceptions.NotEnoughNotesException;
-import pl.edu.amu.bawsj.exceptions.WrongPinException;
+import pl.edu.amu.bawsj.exceptions.*;
 import pl.edu.amu.bawsj.utils.DefaultWithdrawingStrategy;
 import pl.edu.amu.bawsj.utils.WithdrawingStrategy;
 
@@ -58,19 +55,36 @@ public class Atm {
         return notes;
     }
 
-    public void depositMoney(List<Note> notes) {
-//        cardDatabase.
+    public void depositMoney(List<Note> notes) throws IOException, ParseException {
+        double summedAmount = countAmount(notes);
+        cardDatabase.addMoneyToCard(currentCard, summedAmount);
+        addNotesToDatabase(notes);
+    }
+
+    private void addNotesToDatabase(List<Note> notes) throws ParseException, IOException {
+        for (Note note : notes)
+            notesDatabase.addNotes(note.getValue(), 1);
+    }
+
+    private double countAmount(List<Note> notes) {
+        double sum = 0;
+        for (Note note : notes)
+            sum += note.getValue();
+        return sum;
     }
 
     public void logout() {
         currentCard = null;
     }
 
-    public Card getCurrentCard() {
-        return currentCard;
-    }
-
     public boolean isLoggedIn() {
         return currentCard != null;
+    }
+
+    public double getBalance() throws NotLoggedInException {
+        if (!isLoggedIn())
+            throw new NotLoggedInException();
+
+        return currentCard.getCashAmount();
     }
 }

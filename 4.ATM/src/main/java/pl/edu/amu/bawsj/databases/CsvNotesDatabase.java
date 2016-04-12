@@ -1,7 +1,7 @@
 package pl.edu.amu.bawsj.databases;
 
-import pl.edu.amu.bawsj.utils.FileHandler;
 import pl.edu.amu.bawsj.domain.Note;
+import pl.edu.amu.bawsj.utils.FileHandler;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -63,7 +63,8 @@ public class CsvNotesDatabase implements NotesDatabase {
         if (isNoteValueValid(noteValue) && amount >= 0) {
             String value = Integer.toString(noteValue);
             String oldAmount = Integer.toString(getAllNotes().get(noteValue).size());
-            String newAmount = Integer.toString(amount);
+            int oldAmountInt = Integer.parseInt(oldAmount);
+            String newAmount = Integer.toString(amount + oldAmountInt);
             if (fileHandler.hasLineWithPrefix(value))
                 fileHandler.replaceTextInFile(value + "," + oldAmount, value + "," + newAmount);
 //            else

@@ -63,5 +63,14 @@ public class CsvCardDatabase implements CardDatabase{
         double newAmount = card.getCashAmount() - amount;
         fileHandler.replaceTextInFile(card.getNumber()+","+card.getPin()+","+card.getCashAmount(),
                 card.getNumber()+","+card.getPin()+","+newAmount);
+        card.setCashAmount(newAmount);
+    }
+
+    @Override
+    public void addMoneyToCard(Card card, double amount) throws IOException {
+        double newAmount = card.getCashAmount() + amount;
+        fileHandler.replaceTextInFile(card.getNumber()+","+card.getPin()+","+card.getCashAmount(),
+                card.getNumber()+","+card.getPin()+","+newAmount);
+        card.setCashAmount(newAmount);
     }
 }
