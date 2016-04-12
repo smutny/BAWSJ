@@ -23,7 +23,7 @@ public class CsvCardDatabaseTest {
         csvCardDatabase.findCardByNumber("122");
     }
 
-    private CsvCardDatabase prepareCsvCardDatabase() throws IOException {
+    private CardDatabase prepareCsvCardDatabase() throws IOException {
         FileHandler fileHandlerMocked = Mockito.mock(FileHandler.class);
         Mockito.when(fileHandlerMocked.getData()).thenReturn(mockData());
         return new CsvCardDatabase(fileHandlerMocked);

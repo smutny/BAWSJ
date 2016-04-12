@@ -56,7 +56,7 @@ public class CsvNotesDatabaseTest {
     }
 
 
-    private CsvNotesDatabase prepareCsvNotesDatabase() throws IOException {
+    private NotesDatabase prepareCsvNotesDatabase() throws IOException {
         FileHandler fileHandlerMocked = Mockito.mock(FileHandler.class);
         Mockito.when(fileHandlerMocked.getData()).thenReturn(mockData());
         return new CsvNotesDatabase(fileHandlerMocked);
