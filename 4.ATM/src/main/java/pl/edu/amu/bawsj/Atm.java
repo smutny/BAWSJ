@@ -61,4 +61,16 @@ public class Atm {
     public void depositMoney(List<Note> notes) {
 //        cardDatabase.
     }
+
+    public void logout() {
+        currentCard = null;
+    }
+
+    public Card getCurrentCard() {
+        return currentCard;
+    }
+
+    public boolean isLoggedIn() {
+        return currentCard != null;
+    }
 }

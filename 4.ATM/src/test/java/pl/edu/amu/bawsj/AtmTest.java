@@ -111,4 +111,12 @@ public class AtmTest {
         Assert.assertEquals(false, notes.contains(new Note(1000)));
     }
 
+    @Test
+    public void shouldLogoutWorkProperly() throws ParseException, WrongPinException, IOException, AnotherCardInsertedException {
+        Atm atm = prepareAtmInstance();
+        atm.login("11111111", 1234);
+        atm.logout();
+        atm.login("11111111", 1234);
+    }
+
 }

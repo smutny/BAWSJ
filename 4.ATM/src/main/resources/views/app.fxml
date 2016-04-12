@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="204.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="notesFileButton" mnemonicParsing="false" prefHeight="100.0" prefWidth="268.0" text="Select notes file" />
+      <Button fx:id="cardsFileButton" mnemonicParsing="false" prefHeight="100.0" prefWidth="207.0" text="Select cards file" />
+      <Button fx:id="exitButton" mnemonicParsing="false" prefHeight="100.0" prefWidth="235.0" text="Exit" />
+   </children>
+</VBox>

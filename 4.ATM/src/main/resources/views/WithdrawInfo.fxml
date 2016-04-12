@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="163.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label prefHeight="85.0" prefWidth="426.0" text="Otrzymałeś" />
+      <SplitPane dividerPositions="0.5" prefHeight="58.0" prefWidth="375.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="282.0">
+               <children>
+                  <Label layoutX="33.0" layoutY="2.0" text="Ilość banknotów 10 zł" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="259.0">
+               <children>
+                  <Label fx:id="tenLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="Label" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.5" prefHeight="58.0" prefWidth="375.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="282.0">
+               <children>
+                  <Label layoutX="33.0" layoutY="2.0" text="Ilość banknotów 20 zł" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="259.0">
+               <children>
+                  <Label fx:id="twentyLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="Label" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.5" prefHeight="58.0" prefWidth="375.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="282.0">
+               <children>
+                  <Label layoutX="33.0" layoutY="2.0" text="Ilość banknotów 50 zł" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="259.0">
+               <children>
+                  <Label fx:id="fiftyLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="Label" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.5" prefHeight="58.0" prefWidth="375.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="282.0">
+               <children>
+                  <Label layoutX="33.0" layoutY="2.0" text="Ilość banknotów 100 zł" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="259.0">
+               <children>
+                  <Label fx:id="hundredLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="Label" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.5" prefHeight="58.0" prefWidth="375.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="282.0">
+               <children>
+                  <Label layoutX="33.0" layoutY="2.0" text="Ilość banknotów 200 zł" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="43.0" prefWidth="259.0">
+               <children>
+                  <Label fx:id="twoHundredLabel" alignment="CENTER" layoutX="64.0" layoutY="6.0" text="Label" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</VBox>
