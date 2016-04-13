@@ -12,8 +12,6 @@ buildscript {
         classpath 'org.gradle.api.plugins:gradle-cargo-plugin:1.5.1'
     }
 }
-//apply plugin: 'jetty'
-
 
 repositories {
     mavenCentral()
