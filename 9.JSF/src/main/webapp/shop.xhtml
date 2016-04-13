@@ -11,6 +11,7 @@
 </h:head>
 <h:body bgcolor="white">
     Products:
+    <br/>
     <h:form>
         <c:forEach var="item" items="#{productController.products}">
             <h:commandLink value="Do koszyka: #{item.name}" type="submit" action="#{cart.addProduct}">
@@ -18,8 +19,9 @@
             </h:commandLink>
         </c:forEach>
     </h:form>
-
+<br/>
     Cart:
+    <br/>
     <c:forEach var="item" items="#{cart.items}">
         #{item.product.name}" x #{item.quantity} = #{item.itemPrice}<br/>
     </c:forEach>
