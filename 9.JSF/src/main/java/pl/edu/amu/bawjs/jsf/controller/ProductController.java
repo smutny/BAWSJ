@@ -15,12 +15,10 @@ import java.util.List;
  */
 @ManagedBean
 @SessionScoped
-public class ProductController {
-
+public class ProductController implements Serializable{
 
     @ManagedProperty(value="#{user}")
     private User user;
-
 
     public ProductController(){
 
