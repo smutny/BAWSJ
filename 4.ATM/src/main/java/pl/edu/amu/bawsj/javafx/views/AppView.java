@@ -41,6 +41,7 @@ public class AppView extends VBox {
         Button cardsFileButton = (Button) parent.lookup("#cardsFileButton");
         Button exitButton = (Button) parent.lookup("#exitButton");
 
+        // na przyszlosc staraj sie robic "małe" lambdy. Wiem ze tak jak zrobiles jest wygodnie i co ważniejsze działa - ale potem trudno znaleźć tę funkcje w stacku jezeli cos zle pojdzie.
         notesFileButton.setOnMouseClicked(event -> {
             FileChooser chooser = new FileChooser();
             chooser.setTitle(NOTES_FILE_CHOOSER_TEXT);

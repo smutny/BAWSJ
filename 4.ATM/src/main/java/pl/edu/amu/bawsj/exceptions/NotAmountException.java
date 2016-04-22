@@ -1,7 +1,9 @@
 package pl.edu.amu.bawsj.exceptions;
 
 /**
- * Created by Rafa³ on 2016-04-12.
+ * Created by Rafaï¿½ on 2016-04-12.
  */
+
+//nigdy nie dziedzicz po throwable!!
 public class NotAmountException extends Throwable {
 }

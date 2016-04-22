@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * Created by rafal on 3/17/16.
  */
+// zostawiaj zakomentowany kod w repozytorium TYLKO gdy jest ku temu odpowiedni powód: np.: miejsce, gdzie często developerzy zagladaja i cos zmieniają z wersji produkcyjnej na testową itd itp.
 public class FileHandler {
     private List<String[]> data;
     private String separator;

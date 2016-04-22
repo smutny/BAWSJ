@@ -91,6 +91,7 @@ public class CsvNotesDatabaseTest {
         Assert.assertEquals(5, notes.get(20).size());
     }
 
+    // po wykonanym teście usun plik
     private NotesDatabase createCsvNotesDatabaseWithRealFile() throws IOException {
         File file = Files.createTempFile("test", ".csv").toFile();
         FileHandler fileHandler = new FileHandler(file, ",");

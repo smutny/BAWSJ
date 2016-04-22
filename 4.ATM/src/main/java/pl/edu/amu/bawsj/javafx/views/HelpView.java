@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Created by Rafa³ on 2016-04-12.
+ * Created by Rafaï¿½ on 2016-04-12.
  */
 public class HelpView extends Pane {
     private final Stage helpStage;
@@ -23,6 +23,8 @@ public class HelpView extends Pane {
             helpStage.setScene(scene);
             helpStage.show();
         } catch (IOException e) {
+
+            // warto w takich patowych sytuacjach wyrzucac inny wyjatek: IllegalStateException.
             throw new RuntimeException("Problem with app initializing");
         }
     }

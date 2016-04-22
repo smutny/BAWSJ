@@ -41,6 +41,7 @@ public class CsvCardDatabase implements CardDatabase{
         }
     }
 
+    // a nie lepiej poprostu rzucic exception jezeli nie da sie scastowac? Bledy w RegExp sa bardzo trudne do znalezienia
     private boolean isStringDataParsableToCard(String[] card) {
         return card.length==3 && card[0] != null && card[1] != null && card[2] != null && isParsableToInt(card[1]) && isParsableToDouble(card[2]);
     }
