@@ -1,5 +1,6 @@
 package pl.edu.amu.bawjs.jpa.dao;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 /**
  * Created by mbocian on 2016-05-04.
  */
+@Stateless
 public abstract class GenericDao<T>
 {
     @Inject
@@ -35,7 +37,7 @@ public abstract class GenericDao<T>
 
     public List<T> findAll()
     {
-        return (List<T>)entityManager.createNamedQuery( "FROM " + clazz.getSimpleName() ).getResultList();
+        return (List<T>)entityManager.createQuery( "SELECT t FROM " + clazz.getSimpleName() +" t" ).getResultList();
     }
 
     public EntityManager getEntityManager()
