@@ -2,6 +2,10 @@ apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'cargo'
 
+repositories {
+    mavenCentral()
+}
+
 buildscript {
     repositories {
         jcenter()
@@ -11,17 +15,10 @@ buildscript {
     }
 }
 
-repositories {
-    mavenCentral()
-    maven {
-        url "http://repository.primefaces.org"
-    }
-}
+
 
 dependencies {
-    compile group: "org.primefaces", name: "primefaces", version: "5.0"
-    compile group: "com.sun.faces", name: "jsf-api", version: "2.+"
-    compile group: "com.sun.faces", name: "jsf-impl", version: "2.+"
+    providedCompile "javax:javaee-api:7.0"
 
     cargo 'org.wildfly:wildfly-controller-client:8.1.0.Final'
     cargo 'org.codehaus.cargo:cargo-ant:1.4.8'
