@@ -6,6 +6,7 @@ import pl.edu.amu.bawjs.jsf.user.User;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 @ManagedBean
 @SessionScoped
-public class ProductController implements Serializable{
+public class ProductController implements Serializable {
 
     @ManagedProperty(value="#{user}")
     private User user;
