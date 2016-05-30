@@ -40,6 +40,10 @@ public abstract class GenericDao<T>
         return (List<T>)entityManager.createQuery( "SELECT t FROM " + clazz.getSimpleName() +" t" ).getResultList();
     }
 
+    public T findById (Object id) {
+        return entityManager.find(clazz, id);
+    }
+
     public EntityManager getEntityManager()
     {
         return entityManager;

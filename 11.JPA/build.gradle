@@ -22,6 +22,7 @@ dependencies {
 
     cargo 'org.wildfly:wildfly-controller-client:8.1.0.Final'
     cargo 'org.codehaus.cargo:cargo-ant:1.4.8'
+    // http://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client
 
 }
 

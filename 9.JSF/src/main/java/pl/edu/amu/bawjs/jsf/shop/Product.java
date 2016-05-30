@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  */
 public class Product implements Serializable
 {
+    private long id;
     private String description;
     private String name;
     private BigDecimal price;
@@ -47,5 +48,26 @@ public class Product implements Serializable
     public String getDescription()
     {
         return description;
+    }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 }
