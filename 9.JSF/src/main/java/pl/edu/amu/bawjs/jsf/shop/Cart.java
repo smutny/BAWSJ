@@ -94,4 +94,5 @@ public class Cart implements Serializable {
                 .findAny().orElseThrow(() -> new IllegalStateException("Product does not exist."));
         add(product);
     }
+
 }

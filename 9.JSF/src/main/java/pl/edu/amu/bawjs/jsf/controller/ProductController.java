@@ -8,13 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,12 +17,14 @@ import java.util.List;
 @ManagedBean
 @SessionScoped
 public class ProductController implements Serializable {
-    @ManagedProperty(value="#{user}")
+    @ManagedProperty(value = "#{user}")
     private User user;
+
     @Inject
     ProductsService productsService;
 
-    public ProductController(){
+
+    public ProductController() {
 
     }
 

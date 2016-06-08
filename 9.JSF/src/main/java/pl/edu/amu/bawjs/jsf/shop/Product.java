@@ -1,11 +1,15 @@
 package pl.edu.amu.bawjs.jsf.shop;
 
+import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * Created by mbocian on 2016-03-11.
  */
+@ManagedBean
+@SessionScoped
 public class Product implements Serializable
 {
     private long id;
@@ -13,10 +17,19 @@ public class Product implements Serializable
     private String name;
     private BigDecimal price;
 
+    public Product() {
+    }
+
     public Product(String name, String description, BigDecimal price)
     {
         this.description = description;
         this.name = name;
+        this.price = price;
+    }
+
+    public void setProductValues(String name, String description, BigDecimal price) {
+        this.name = name;
+        this.description = description;
         this.price = price;
     }
 

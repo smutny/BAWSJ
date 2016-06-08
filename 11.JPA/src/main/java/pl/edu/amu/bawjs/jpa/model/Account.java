@@ -1,7 +1,10 @@
 package pl.edu.amu.bawjs.jpa.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by mbocian on 2016-05-04.
@@ -16,6 +19,19 @@ public class Account implements Serializable {
     @ManyToOne
     private User user;
 
+    @OneToMany
+    private List<Card> cards = new ArrayList<>();
+
+    public Account() {
+
+    }
+
+    public Account(User user, double balance) {
+        this.user = user;
+        this.balance = balance;
+    }
+
+    @XmlTransient
     public User getUser() {
         return user;
     }
@@ -41,5 +57,13 @@ public class Account implements Serializable {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
     }
 }

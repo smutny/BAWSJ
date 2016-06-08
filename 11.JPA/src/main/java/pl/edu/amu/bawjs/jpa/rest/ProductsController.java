@@ -1,8 +1,8 @@
 package pl.edu.amu.bawjs.jpa.rest;
 
-import pl.edu.amu.bawjs.jpa.dao.ProductDao;
+import pl.edu.amu.bawjs.jpa.exceptions.WrongIdException;
 import pl.edu.amu.bawjs.jpa.model.Product;
-import pl.edu.amu.bawjs.jpa.model.User;
+import pl.edu.amu.bawjs.jpa.services.ProductsService;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -16,13 +16,14 @@ import java.util.List;
 @Path("/products")
 public class ProductsController {
     @Inject
-    private ProductDao productDao;
+    ProductsService productsService;
+
 
     @GET
     @Produces({"application/json"})
     @Transactional
     public Response getProducts() {
-        List<Product> products = productDao.findAll();
+        List<Product> products = productsService.getAll();
         return Response.ok(products).build();
     }
 
@@ -31,20 +32,19 @@ public class ProductsController {
     @Produces("application/json")
     @Transactional
     public Response getProductById(@PathParam("id") long id) {
-        Product product = productDao.findById(id);
-
-        if (product == null) {
+        try {
+            Product product = productsService.getById(id);
+            return Response.ok(product).build();
+        } catch (WrongIdException e) {
             return Response.status(404).build();
         }
-
-        return Response.ok(product).build();
     }
 
     @POST
     @Consumes("application/json")
     @Transactional
     public Response addProduct(Product product) {
-        productDao.create(product);
+        productsService.addProduct(product);
         return Response.status(201).build();
     }
 }

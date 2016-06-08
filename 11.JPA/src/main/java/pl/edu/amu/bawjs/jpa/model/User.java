@@ -2,6 +2,7 @@ package pl.edu.amu.bawjs.jpa.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public class User implements Serializable {
     private String name;
 
     @OneToMany()
-    private List<Account> accounts;
+    private List<Account> accounts = new ArrayList<>();
 
 
     public List<Account> getAccounts() {

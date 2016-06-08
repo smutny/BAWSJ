@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
@@ -27,4 +28,5 @@ public class ProductsService {
         String json = target.request().get(String.class);
         return gson.fromJson(json, new TypeToken<List<Product>>(){}.getType());
     }
+
 }

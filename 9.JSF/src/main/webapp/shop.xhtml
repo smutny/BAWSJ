@@ -14,16 +14,21 @@
     <br/>
     <h:form>
         <c:forEach var="item" items="#{productController.products}">
-            <h:commandLink value="Do koszyka: #{item.name}" type="submit" action="#{cart.addProduct}">
-                <f:param name="productName" value="#{item.name}"/><br/>
+            <h:commandLink value="Szczegóły"
+                           action="item_details"
+                           actionListener="${product.setProductValues(item.name, item.description, item.price)}"/>
+            <h:commandLink value="Do koszyka: #{item.name}"
+                           type="submit"
+                           style="margin-left: 20px;"
+                           action="#{cart.addProduct}">
+                <f:param name="productName" value="#{item.name}"/>
             </h:commandLink>
         </c:forEach>
     </h:form>
-<br/>
-    Cart:
-    <br/>
-    <c:forEach var="item" items="#{cart.items}">
-        #{item.product.name} x #{item.quantity} = #{item.itemPrice}<br/>
-    </c:forEach>
+    <h:form>
+        <h:commandLink value="Cart"
+                       style="margin-top: 50px;"
+                       action="cart"/><br/>
+    </h:form>
 </h:body>
 </html>
