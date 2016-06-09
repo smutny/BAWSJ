@@ -7,28 +7,38 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
     <title>Sklep</title>
 </h:head>
 <h:body bgcolor="white">
-    Products:
+    <h1>Produkty:</h1>
     <br/>
     <h:form>
-        <c:forEach var="item" items="#{productController.products}">
-            <h:commandLink value="Szczegóły"
-                           action="item_details"
-                           actionListener="${product.setProductValues(item.name, item.description, item.price)}"/>
-            <h:commandLink value="Do koszyka: #{item.name}"
-                           type="submit"
-                           style="margin-left: 20px;"
-                           action="#{cart.addProduct}">
-                <f:param name="productName" value="#{item.name}"/>
-            </h:commandLink>
-        </c:forEach>
+        <ul>
+            <c:forEach var="item" items="#{productController.products}">
+                <li>
+                    <span class="item-name">
+                    <h:commandLink value="#{item.name}"
+                                   action="item_details"
+                                   actionListener="${product.setProductValues(item.name, item.description, item.price)}"/>
+                    </span>
+                    <h:commandLink value="Do koszyka"
+                                   type="submit"
+                                   style="margin-left: 20px;"
+                                   action="#{cart.addProduct}">
+                        <f:param name="productName" value="#{item.name}"/>
+                    </h:commandLink>
+                    <br/>
+                </li>
+            </c:forEach>
+        </ul>
     </h:form>
-    <h:form>
-        <h:commandLink value="Cart"
+    <h:form styleClass="bottomMenu">
+        <h:commandLink value="Koszyk"
                        style="margin-top: 50px;"
                        action="cart"/><br/>
+        <h:commandLink value="Kup"
+                       action="check_in"/>
     </h:form>
 </h:body>
 </html>

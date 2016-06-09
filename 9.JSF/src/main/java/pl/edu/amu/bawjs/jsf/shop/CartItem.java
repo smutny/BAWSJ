@@ -23,6 +23,8 @@ public class CartItem implements Serializable {
         this.quantity += quantity;
     }
 
+    public void removeQuantity(int quantity) { this.quantity -= quantity; }
+
     public int getQuantity() {
         return quantity;
     }
@@ -41,4 +43,5 @@ public class CartItem implements Serializable {
     public BigDecimal getSubTotal() {
         return product.getPrice().multiply(new BigDecimal(quantity));
     }
+
 }

@@ -1,0 +1,12 @@
+body {
+    font-size: medium;
+}
+
+.bottomMenu {
+    margin-top: 50px;
+}
+
+.item-name {
+    width: 200px;
+    display: inline-block;
+}

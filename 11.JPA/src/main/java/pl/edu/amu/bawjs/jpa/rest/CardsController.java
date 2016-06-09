@@ -21,7 +21,7 @@ public class CardsController {
     @Produces({"application/json"})
     @Transactional
     public Response test() {
-        return Response.ok(new Card("222", 1234)).build();
+        return Response.ok(new Card("222", "1234")).build();
     }
 
     @POST

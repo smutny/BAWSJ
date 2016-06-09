@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <title>Sklep</title>
+</h:head>
+
+<h:body>
+    <h1>Płatność</h1>
+    Do zapłacenia #{cart.total}
+    #{amountBean.price}
+    <h:form id="checkInForm">
+        <h:inputText id="cardNumber" label="Numer Karty">
+            <f:validateLength minimum="16" maximum="16"/>
+        </h:inputText>
+        <h:message for="cardNumber" style="color: red"/>
+        <br/>
+        <h:inputSecret id="pin" label="Pin">
+            <f:validateLength minimum="4" maximum="4"/>
+        </h:inputSecret>
+        <h:message for="pin" style="color: red"/>
+        <br/>
+        <h:commandButton value="Submit"
+                         action="#{checkInController.checkIn()}">
+            <f:param name="amount" value="${cart.total}"/>
+        </h:commandButton>
+        <h:messages style="color: red" globalOnly="true"/>
+    </h:form>
+
+
+    <h:form styleClass="bottomMenu">
+        <h:commandLink value="Powrót" action="shop"/>
+    </h:form>
+</h:body>
+</html>

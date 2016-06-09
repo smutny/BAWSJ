@@ -18,7 +18,7 @@ public class Card {
     private String number;
 
     @Column
-    private int pin;
+    private String pin;
 
     @ManyToOne
     private Account account;
@@ -27,7 +27,7 @@ public class Card {
 
     }
 
-    public Card(String number, int pin) {
+    public Card(String number, String pin) {
         this.number = number;
         this.pin = pin;
     }
@@ -36,7 +36,7 @@ public class Card {
         return number;
     }
 
-    public int getPin() {
+    public String getPin() {
         return pin;
     }
 

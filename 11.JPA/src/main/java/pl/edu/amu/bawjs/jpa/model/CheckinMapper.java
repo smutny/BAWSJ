@@ -5,7 +5,7 @@ package pl.edu.amu.bawjs.jpa.model;
  */
 public class CheckinMapper {
     private String cardNumber;
-    private int pin;
+    private String pin;
     private double amount;
 
     public String getCardNumber() {
@@ -16,11 +16,11 @@ public class CheckinMapper {
         this.cardNumber = cardNumber;
     }
 
-    public int getPin() {
+    public String getPin() {
         return pin;
     }
 
-    public void setPin(int pin) {
+    public void setPin(String pin) {
         this.pin = pin;
     }
 

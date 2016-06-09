@@ -71,6 +71,10 @@ public class Cart implements Serializable {
         add(new CartItem(product, 1));
     }
 
+    //For jsf only
+    public void setTotal() {
+    }
+
     public BigDecimal getTotal() {
         BigDecimal sum = new BigDecimal(0);
         for (CartItem item : items) {
@@ -93,6 +97,33 @@ public class Cart implements Serializable {
                 .filter(p -> p.getName().equals(action))
                 .findAny().orElseThrow(() -> new IllegalStateException("Product does not exist."));
         add(product);
+    }
+
+    public void removeAllProducts() {
+        items.clear();
+    }
+
+    public String removeProductFromCart() {
+        String itemToDeleteName = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("itemName");
+        CartItem itemToDelete = findItemToDelete(itemToDeleteName);
+        if (itemToDelete != null) {
+            items.remove(itemToDelete);
+
+            if (itemToDelete.getQuantity() > 1) {
+                itemToDelete.removeQuantity(1);
+                items.add(itemToDelete);
+            }
+
+        }
+
+        return "cart";
+    }
+
+    private CartItem findItemToDelete(String itemToDeleteName) {
+        return items.stream().
+                    filter(cartItem -> cartItem.getProduct().getName().equals(itemToDeleteName))
+                    .findFirst()
+                    .orElse(null);
     }
 
 }

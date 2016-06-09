@@ -6,16 +6,17 @@
 >
 
 <h:head>
+    <h:outputStylesheet library="css" name="style.css"  />
     <title>Sklep</title>
 </h:head>
 <h:body bgcolor="white">
-    <b>Product details:</b>
-    <br/>name: #{product.name}
-    <br/>description: #{product.description}
-    <br/>price: #{product.price}
+    <b>Szczegóły:</b>
+    <br/>nazwa: #{product.name}
+    <br/>opis: #{product.description}
+    <br/>cena: #{product.price}
 </h:body>
 
-<h:form>
-    <h:commandLink value="Go back" action="shop"/>
+<h:form styleClass="bottomMenu">
+    <h:commandLink value="Powrót" action="shop"/>
 </h:form>
 </html>

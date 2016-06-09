@@ -24,7 +24,7 @@ public class CheckinService {
         if (card == null)
             throw new WrongIdException();
 
-        if (card.getPin() != checkin.getPin())
+        if (!card.getPin().equals(checkin.getPin()))
             throw new UnauthorizedException();
 
         Account account = card.getAccount();
