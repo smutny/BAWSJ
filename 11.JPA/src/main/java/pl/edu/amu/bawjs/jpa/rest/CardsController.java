@@ -1,7 +1,13 @@
 package pl.edu.amu.bawjs.jpa.rest;
 
+import pl.edu.amu.bawjs.jpa.exceptions.NotEnoughFundsException;
+import pl.edu.amu.bawjs.jpa.exceptions.UnauthorizedException;
 import pl.edu.amu.bawjs.jpa.exceptions.WrongIdException;
+import pl.edu.amu.bawjs.jpa.model.Balance;
 import pl.edu.amu.bawjs.jpa.model.Card;
+import pl.edu.amu.bawjs.jpa.model.NewPinCard;
+import pl.edu.amu.bawjs.jpa.model.Withdraw;
+import pl.edu.amu.bawjs.jpa.services.AccountsService;
 import pl.edu.amu.bawjs.jpa.services.CardsService;
 
 import javax.inject.Inject;
@@ -34,6 +40,46 @@ public class CardsController {
             return Response.status(201).build();
         } catch (WrongIdException e) {
             return Response.status(404).build();
+        }
+    }
+
+    @POST
+    @Path("/change-pin")
+    @Consumes("application/json")
+    @Transactional
+    public Response changePin(NewPinCard newPinCard) {
+        try {
+            cardsService.changePin(newPinCard);
+            return Response.status(200).build();
+        } catch (UnauthorizedException ex) {
+            return Response.status(401).build();
+        }
+    }
+
+    @POST
+    @Path("/withdraw")
+    @Consumes("application/json")
+    public Response withdraw(Withdraw withdraw) {
+        try {
+            cardsService.withdraw(withdraw);
+            return Response.status(200).build();
+        } catch (UnauthorizedException ex) {
+            return Response.status(401).build();
+        } catch (NotEnoughFundsException ex) {
+            return Response.status(400).build();
+        }
+    }
+
+    @POST
+    @Path("/balance")
+    @Consumes("application/json")
+    @Produces({"application/json"})
+    public Response checkBalance(Card card) {
+        try {
+            Balance balance = cardsService.checkBalance(card);
+            return Response.ok(balance).build();
+        } catch (UnauthorizedException ex) {
+            return Response.status(401).build();
         }
     }
 }

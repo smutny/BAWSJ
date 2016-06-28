@@ -48,4 +48,16 @@ public class Card {
     public void setAccount(Account account) {
         this.account = account;
     }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
+    }
 }

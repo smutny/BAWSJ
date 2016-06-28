@@ -1,11 +1,13 @@
 package pl.edu.amu.bawjs.jpa.services;
 
 import pl.edu.amu.bawjs.jpa.dao.CardDao;
+import pl.edu.amu.bawjs.jpa.exceptions.NotEnoughFundsException;
+import pl.edu.amu.bawjs.jpa.exceptions.UnauthorizedException;
 import pl.edu.amu.bawjs.jpa.exceptions.WrongIdException;
-import pl.edu.amu.bawjs.jpa.model.Account;
-import pl.edu.amu.bawjs.jpa.model.Card;
+import pl.edu.amu.bawjs.jpa.model.*;
 
 import javax.inject.Inject;
+import javax.ws.rs.Produces;
 import java.security.SecureRandom;
 import java.util.UUID;
 
@@ -52,5 +54,50 @@ public class CardsService {
                 filter(card -> card.getNumber().equals(cardNumber)).
                 findFirst().
                 orElse(null);
+    }
+
+    public void changePin(NewPinCard newPinCard) throws UnauthorizedException {
+        Card card = findCardByNumber(newPinCard.getNumber());
+
+        if (card == null)
+            throw new UnauthorizedException();
+
+        if (!card.getPin().equals(newPinCard.getPin()))
+            throw new UnauthorizedException();
+
+        card.setPin(newPinCard.getNewPin());
+        cardDao.update(card);
+    }
+
+    public void withdraw(Withdraw withdraw) throws UnauthorizedException, NotEnoughFundsException {
+        Card card = findCardByNumber(withdraw.getNumber());
+
+        if (card == null)
+            throw new UnauthorizedException();
+
+        if (!card.getPin().equals(withdraw.getPin()))
+            throw new UnauthorizedException();
+
+        Account account = card.getAccount();
+
+        if (account.getBalance() < withdraw.getAmount())
+            throw new NotEnoughFundsException();
+
+        account.setBalance(account.getBalance() - withdraw.getAmount());
+        accountsService.update(account);
+    }
+
+    public Balance checkBalance(Card cardToCheck) throws UnauthorizedException {
+        Card card = findCardByNumber(cardToCheck.getNumber());
+
+        if (card == null)
+            throw new UnauthorizedException();
+
+        if (!card.getPin().equals(cardToCheck.getPin()))
+            throw new UnauthorizedException();
+
+        Balance balance = new Balance();
+        balance.setAmount(card.getAccount().getBalance());
+        return balance;
     }
 }
