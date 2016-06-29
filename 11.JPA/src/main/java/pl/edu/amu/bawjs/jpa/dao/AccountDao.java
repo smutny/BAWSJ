@@ -1,6 +1,6 @@
 package pl.edu.amu.bawjs.jpa.dao;
 
-import pl.edu.amu.bawjs.jpa.model.Account;
+import pl.edu.amu.bawsj.atmjpa.model.Account;
 
 import javax.ejb.Stateless;
 

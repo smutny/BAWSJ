@@ -1,4 +1,4 @@
-package pl.edu.amu.bawjs.jpa.model;
+package pl.edu.amu.bawsj.atmjpa.model;
 
 import javax.persistence.*;
 import java.io.Serializable;

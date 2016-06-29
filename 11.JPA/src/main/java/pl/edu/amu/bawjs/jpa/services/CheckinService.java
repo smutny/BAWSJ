@@ -3,9 +3,9 @@ package pl.edu.amu.bawjs.jpa.services;
 import pl.edu.amu.bawjs.jpa.exceptions.NotEnoughFundsException;
 import pl.edu.amu.bawjs.jpa.exceptions.UnauthorizedException;
 import pl.edu.amu.bawjs.jpa.exceptions.WrongIdException;
-import pl.edu.amu.bawjs.jpa.model.Account;
-import pl.edu.amu.bawjs.jpa.model.Card;
 import pl.edu.amu.bawjs.jpa.model.CheckinMapper;
+import pl.edu.amu.bawsj.atmjpa.model.Account;
+import pl.edu.amu.bawsj.atmjpa.model.Card;
 
 import javax.inject.Inject;
 

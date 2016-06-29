@@ -1,7 +1,7 @@
 package pl.edu.amu.bawjs.jpa.services;
 
 import pl.edu.amu.bawjs.jpa.dao.UserDao;
-import pl.edu.amu.bawjs.jpa.model.User;
+import pl.edu.amu.bawsj.atmjpa.model.User;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -22,7 +22,7 @@ public class UsersService {
         //Lazyyyyyyyyyyyyyyy
         users.forEach(i ->
                 i.getAccounts().forEach(j ->
-                j.getCards().size()));
+                        j.getCards().size()));
         return users;
     }
 

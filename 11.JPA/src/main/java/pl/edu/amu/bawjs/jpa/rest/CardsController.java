@@ -3,12 +3,11 @@ package pl.edu.amu.bawjs.jpa.rest;
 import pl.edu.amu.bawjs.jpa.exceptions.NotEnoughFundsException;
 import pl.edu.amu.bawjs.jpa.exceptions.UnauthorizedException;
 import pl.edu.amu.bawjs.jpa.exceptions.WrongIdException;
-import pl.edu.amu.bawjs.jpa.model.Balance;
-import pl.edu.amu.bawjs.jpa.model.Card;
-import pl.edu.amu.bawjs.jpa.model.NewPinCard;
-import pl.edu.amu.bawjs.jpa.model.Withdraw;
-import pl.edu.amu.bawjs.jpa.services.AccountsService;
 import pl.edu.amu.bawjs.jpa.services.CardsService;
+import pl.edu.amu.bawsj.atmjpa.model.Balance;
+import pl.edu.amu.bawsj.atmjpa.model.Card;
+import pl.edu.amu.bawsj.atmjpa.model.NewPinCard;
+import pl.edu.amu.bawsj.atmjpa.model.Withdraw;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;

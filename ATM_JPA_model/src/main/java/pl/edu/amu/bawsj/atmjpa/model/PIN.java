@@ -49,6 +49,14 @@ public class PIN implements Serializable {
         return null == getDigits() ? null == otherPIN.getDigits() : isDigitsArrayEquals(otherPIN.getDigits());
     }
 
+    public String digitsToString() {
+        String str = "";
+        for (byte digit : digits) {
+            str += String.valueOf(digit);
+        }
+        return str;
+    }
+
     private boolean isDigitsArrayEquals(byte[] otherDigits) {
         for (int i = 0; i < digits.length; i++) {
             if (digits[i] != otherDigits[i]) {

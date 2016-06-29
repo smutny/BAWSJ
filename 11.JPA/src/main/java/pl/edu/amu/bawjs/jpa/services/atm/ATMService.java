@@ -6,14 +6,14 @@ import pl.edu.amu.bawjs.jpa.exceptions.NotEnoughMoneyInATMException;
 import pl.edu.amu.bawjs.jpa.exceptions.UnauthorizedException;
 import pl.edu.amu.bawjs.jpa.exceptions.WrongAmountToWithdrawException;
 import pl.edu.amu.bawjs.jpa.model.ATMNoteState;
-import pl.edu.amu.bawjs.jpa.model.Account;
-import pl.edu.amu.bawjs.jpa.model.Card;
-import pl.edu.amu.bawjs.jpa.model.Withdraw;
 import pl.edu.amu.bawjs.jpa.services.AccountsService;
 import pl.edu.amu.bawjs.jpa.services.CardsService;
 import pl.edu.amu.bawjs.jpa.services.atm.strategy.DefaultWithdrawingStrategy;
 import pl.edu.amu.bawjs.jpa.services.atm.strategy.WithdrawingStrategy;
+import pl.edu.amu.bawsj.atmjpa.model.Account;
+import pl.edu.amu.bawsj.atmjpa.model.Card;
 import pl.edu.amu.bawsj.atmjpa.model.Note;
+import pl.edu.amu.bawsj.atmjpa.model.Withdraw;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

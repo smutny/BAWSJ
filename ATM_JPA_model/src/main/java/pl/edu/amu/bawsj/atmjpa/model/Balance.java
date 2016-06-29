@@ -1,11 +1,11 @@
-package pl.edu.amu.bawjs.jpa.model;
+package pl.edu.amu.bawsj.atmjpa.model;
 
 import java.io.Serializable;
 
 /**
  * Created by rafal on 6/28/16.
  */
-public class Balance implements Serializable{
+public class Balance implements Serializable {
     double amount;
 
     public double getAmount() {

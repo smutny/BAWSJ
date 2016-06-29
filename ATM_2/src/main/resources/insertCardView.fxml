@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<VBox xmlns:fx="http://javafx.com/fxml" maxHeight="-Infinity" maxWidth="-Infinity"
+    minHeight="-Infinity" minWidth="-Infinity" prefHeight="195.0" prefWidth="280.0"
+    xmlns="http://javafx.com/javafx/8">
+    <children>
+        <Label text="Numer karty:" fx:id="cardNumberLabel" />
+        <TextField prefHeight="30.0" prefWidth="100.0" fx:id="cardNumberTextField" text="abcdefgh12345678"/>
+        <Label text="PIN:" fx:id="pinLabel" />
+        <TextField prefHeight="30.0" prefWidth="100.0" fx:id="pinTextField" text="1234"/>
+        <Button mnemonicParsing="false" text="OK" fx:id="confirmButton" />
+    </children>
+</VBox>

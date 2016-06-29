@@ -3,7 +3,6 @@ package pl.edu.amu.bawjs.jpa.rest;
 import pl.edu.amu.bawjs.jpa.exceptions.NotEnoughFundsException;
 import pl.edu.amu.bawjs.jpa.exceptions.UnauthorizedException;
 import pl.edu.amu.bawjs.jpa.exceptions.WrongIdException;
-import pl.edu.amu.bawjs.jpa.model.Card;
 import pl.edu.amu.bawjs.jpa.model.CheckinMapper;
 import pl.edu.amu.bawjs.jpa.services.CheckinService;
 

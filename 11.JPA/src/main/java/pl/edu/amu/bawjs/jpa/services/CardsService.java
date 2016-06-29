@@ -4,12 +4,10 @@ import pl.edu.amu.bawjs.jpa.dao.CardDao;
 import pl.edu.amu.bawjs.jpa.exceptions.NotEnoughFundsException;
 import pl.edu.amu.bawjs.jpa.exceptions.UnauthorizedException;
 import pl.edu.amu.bawjs.jpa.exceptions.WrongIdException;
-import pl.edu.amu.bawjs.jpa.model.*;
+import pl.edu.amu.bawsj.atmjpa.model.*;
 
 import javax.inject.Inject;
-import javax.ws.rs.Produces;
 import java.security.SecureRandom;
-import java.util.UUID;
 
 /**
  * Created by rafal on 6/7/16.
@@ -40,10 +38,10 @@ public class CardsService {
         return randomString(16);
     }
 
-    private String randomString( int len ){
-        StringBuilder sb = new StringBuilder( len );
-        for( int i = 0; i < len; i++ )
-            sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+    private String randomString(int len) {
+        StringBuilder sb = new StringBuilder(len);
+        for (int i = 0; i < len; i++)
+            sb.append(AB.charAt(rnd.nextInt(AB.length())));
         return sb.toString();
     }
 

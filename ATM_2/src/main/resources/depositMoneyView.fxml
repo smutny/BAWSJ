@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<VBox xmlns:fx="http://javafx.com/fxml" maxHeight="-Infinity" maxWidth="-Infinity"
+    minHeight="-Infinity" minWidth="-Infinity" prefHeight="195.0" prefWidth="280.0"
+    xmlns="http://javafx.com/javafx/8">
+    <children>
+        <HBox>
+            <children>
+                <Label text="ile banknotów o nominale 10:" fx:id="note10Label" />
+                <TextField prefHeight="15.0" prefWidth="100.0" fx:id="note10TextField" />
+            </children>
+        </HBox>
+        <HBox>
+            <children>
+                <Label text="ile banknotów o nominale 20:" fx:id="note20Label" />
+                <TextField prefHeight="15.0" prefWidth="100.0" fx:id="note20TextField" />
+            </children>
+        </HBox>
+        <HBox>
+            <children>
+                <Label text="ile banknotów o nominale 50:" fx:id="note50Label" />
+                <TextField prefHeight="15.0" prefWidth="100.0" fx:id="note50TextField" />
+            </children>
+        </HBox>
+        <HBox>
+            <children>
+                <Label text="ile banknotów o nominale 100:" fx:id="note100Label" />
+                <TextField prefHeight="15.0" prefWidth="100.0" fx:id="note100TextField" />
+            </children>
+        </HBox>
+        <HBox>
+            <children>
+                <Label text="ile banknotów o nominale 200:" fx:id="note200Label" />
+                <TextField prefHeight="15.0" prefWidth="100.0" fx:id="note200TextField" />
+            </children>
+        </HBox>
+        <Button mnemonicParsing="false" text="OK" fx:id="confirmButton" />
+    </children>
+</VBox>

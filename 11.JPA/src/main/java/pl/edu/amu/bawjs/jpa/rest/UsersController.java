@@ -1,7 +1,7 @@
 package pl.edu.amu.bawjs.jpa.rest;
 
-import pl.edu.amu.bawjs.jpa.model.User;
 import pl.edu.amu.bawjs.jpa.services.UsersService;
+import pl.edu.amu.bawsj.atmjpa.model.User;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;

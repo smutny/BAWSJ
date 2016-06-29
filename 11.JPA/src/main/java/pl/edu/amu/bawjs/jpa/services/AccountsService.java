@@ -3,10 +3,9 @@ package pl.edu.amu.bawjs.jpa.services;
 import pl.edu.amu.bawjs.jpa.dao.AccountDao;
 import pl.edu.amu.bawjs.jpa.dao.UserDao;
 import pl.edu.amu.bawjs.jpa.exceptions.WrongIdException;
-import pl.edu.amu.bawjs.jpa.model.Account;
-import pl.edu.amu.bawjs.jpa.model.Amount;
-import pl.edu.amu.bawjs.jpa.model.Card;
-import pl.edu.amu.bawjs.jpa.model.User;
+import pl.edu.amu.bawsj.atmjpa.model.Account;
+import pl.edu.amu.bawsj.atmjpa.model.Card;
+import pl.edu.amu.bawsj.atmjpa.model.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

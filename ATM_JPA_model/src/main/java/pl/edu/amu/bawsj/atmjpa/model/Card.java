@@ -1,58 +1,62 @@
 package pl.edu.amu.bawsj.atmjpa.model;
 
-import pl.edu.amu.bawsj.atmjpa.model.exception.IncorrectCardNumberException;
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 
-import java.io.Serializable;
+/**
+ * Created by rafal on 6/7/16.
+ */
+@Entity
+@Table
+public class Card {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-public class Card implements Serializable {
-    private static final String CARD_NUMBER_REGEXP = "^([1-9][0-9]{15})$";
+    @Column
+    private String number;
 
-    private long number;    //TODO: 16 cyfr
+    @Column
+    private String pin;
 
-    private PIN pin;
+    @ManyToOne
+    private Account account;
 
-    public Card(long number, PIN pin) {
+    public Card() {
+
+    }
+
+    public Card(String number, String pin) {
         this.number = number;
         this.pin = pin;
     }
 
-    public Card(String numberStr, PIN pin) throws IncorrectCardNumberException {
-        if (!numberStr.matches(CARD_NUMBER_REGEXP)) {
-            throw new IncorrectCardNumberException();
-        }
-        this.number = Long.parseLong(numberStr);
-        this.pin = pin;
-    }
-
-    public Card() {
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if (this == object) {
-            return true;
-        }
-        if (!(this.getClass().equals(object.getClass()))) {
-            return false;
-        }
-        Card otherCard = (Card) object;
-        return getNumber() == otherCard.getNumber()
-                && (null == getPin() ? null == otherCard.getPin() : getPin().equals(otherCard.getPin()));
-    }
-
-    public long getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(long number) {
-        this.number = number;
-    }
-
-    public PIN getPin() {
+    public String getPin() {
         return pin;
     }
 
-    public void setPin(PIN pin) {
+    @XmlTransient
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setPin(String pin) {
         this.pin = pin;
     }
 }
