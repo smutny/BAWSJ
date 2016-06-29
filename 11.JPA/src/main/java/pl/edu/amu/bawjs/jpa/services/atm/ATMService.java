@@ -1,19 +1,13 @@
 package pl.edu.amu.bawjs.jpa.services.atm;
 
 import pl.edu.amu.bawjs.jpa.dao.ATMNoteStateDao;
-import pl.edu.amu.bawjs.jpa.exceptions.NotEnoughFundsException;
-import pl.edu.amu.bawjs.jpa.exceptions.NotEnoughMoneyInATMException;
-import pl.edu.amu.bawjs.jpa.exceptions.UnauthorizedException;
-import pl.edu.amu.bawjs.jpa.exceptions.WrongAmountToWithdrawException;
+import pl.edu.amu.bawjs.jpa.exceptions.*;
 import pl.edu.amu.bawjs.jpa.model.ATMNoteState;
 import pl.edu.amu.bawjs.jpa.services.AccountsService;
 import pl.edu.amu.bawjs.jpa.services.CardsService;
 import pl.edu.amu.bawjs.jpa.services.atm.strategy.DefaultWithdrawingStrategy;
 import pl.edu.amu.bawjs.jpa.services.atm.strategy.WithdrawingStrategy;
-import pl.edu.amu.bawsj.atmjpa.model.Account;
-import pl.edu.amu.bawsj.atmjpa.model.Card;
-import pl.edu.amu.bawsj.atmjpa.model.Note;
-import pl.edu.amu.bawsj.atmjpa.model.Withdraw;
+import pl.edu.amu.bawsj.atmjpa.model.*;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -49,6 +43,20 @@ public class ATMService {
         accountsService.update(account);
 
         return noteList;
+    }
+
+    public void depositMoney(Deposit deposit) throws UnauthorizedException, WrongIdException {
+        Card card = cardsService.findCardByNumber(deposit.getNumber());
+        checkCard(card, deposit.getPin());
+
+        int sum = 0;
+        for (Note note : deposit.getNotes()) {
+            sum += note.getValue();
+            addNotes(new ATMNoteState(note, 1));
+        }
+
+        Account account = card.getAccount();
+        accountsService.chargeAccount(account.getId(), sum);
     }
 
     public List<ATMNoteState> getNotes() {

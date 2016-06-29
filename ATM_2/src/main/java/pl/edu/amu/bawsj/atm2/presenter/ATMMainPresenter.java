@@ -78,6 +78,8 @@ public class ATMMainPresenter {
             mainView.showDialog("Podano nieprawidłową liczbę banknotów");
         } catch (NoCardException e) {
             mainView.showDialog("Nie włożono poprawnej karty");
+        } catch (UnauthorizedException e) {
+            mainView.showDialog("Autoryzacja karty nie powiodła się");
         } catch (UnknownResponseException e) {
             mainView.showDialog("Nieznana odpowiedź od ATM. Operacja nie powiadła się");
         }

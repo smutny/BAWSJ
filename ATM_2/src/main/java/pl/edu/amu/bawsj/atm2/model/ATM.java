@@ -49,11 +49,10 @@ public enum ATM {
         return accountManager.withdrawMoneyFromAccount(insertedCard, money);
     }
 
-    public BigDecimal payMoneyIntoAccount(List<Note> money) throws NoCardException, UnknownResponseException {
+    public BigDecimal payMoneyIntoAccount(List<Note> money) throws NoCardException, UnknownResponseException, UnauthorizedException {
         if (insertedCard == null) {
             throw new NoCardException();
         }
-//        return accountManager.payMoneyIntoAccount(insertedCard, money);
-        throw new UnknownResponseException();
+        return accountManager.payMoneyIntoAccount(insertedCard, money);
     }
 }

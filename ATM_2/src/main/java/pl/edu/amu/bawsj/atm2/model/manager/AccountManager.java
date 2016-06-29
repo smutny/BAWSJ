@@ -56,4 +56,25 @@ public class AccountManager {
             throw new UnknownResponseException();
         }
     }
+
+    public BigDecimal payMoneyIntoAccount(Card2 insertedCard, List<Note> notes) throws UnauthorizedException, UnknownResponseException {
+        Deposit deposit = new Deposit();
+        deposit.setNumber(String.valueOf(insertedCard.getNumber()));
+        deposit.setPin(insertedCard.getPin().digitsToString());
+        deposit.setNotes(notes);
+
+        WebResource resource = client.resource(RestClient.BASE_URI);
+        ClientResponse response = resource.path("atm").path("deposit_money").type("application/json")
+                .post(ClientResponse.class, deposit);
+
+        if (response.getStatus() == 200) {
+            return checkMoneyInAccount(insertedCard);
+        } else if (response.getStatus() == 404) {
+            throw new UnauthorizedException();
+        } else if (response.getStatus() == 401) {
+            throw new UnauthorizedException();
+        } else {
+            throw new UnknownResponseException();
+        }
+    }
 }

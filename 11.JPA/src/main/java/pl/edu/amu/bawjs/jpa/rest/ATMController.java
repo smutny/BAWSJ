@@ -1,11 +1,9 @@
 package pl.edu.amu.bawjs.jpa.rest;
 
-import pl.edu.amu.bawjs.jpa.exceptions.NotEnoughFundsException;
-import pl.edu.amu.bawjs.jpa.exceptions.NotEnoughMoneyInATMException;
-import pl.edu.amu.bawjs.jpa.exceptions.UnauthorizedException;
-import pl.edu.amu.bawjs.jpa.exceptions.WrongAmountToWithdrawException;
+import pl.edu.amu.bawjs.jpa.exceptions.*;
 import pl.edu.amu.bawjs.jpa.model.ATMNoteState;
 import pl.edu.amu.bawjs.jpa.services.atm.ATMService;
+import pl.edu.amu.bawsj.atmjpa.model.Deposit;
 import pl.edu.amu.bawsj.atmjpa.model.Note;
 import pl.edu.amu.bawsj.atmjpa.model.Withdraw;
 
@@ -35,6 +33,22 @@ public class ATMController {
             return Response.status(400).build();
         } catch (WrongAmountToWithdrawException e) {
             return Response.status(406).build();
+        } catch (UnauthorizedException e) {
+            return Response.status(401).build();
+        }
+    }
+
+    @POST
+    @Path("/deposit_money")
+    @Consumes("application/json")
+    @Produces("application/json")
+    @Transactional
+    public Response depositMoney(Deposit deposit) {
+        try {
+            atmService.depositMoney(deposit);
+            return Response.ok().build();
+        } catch (WrongIdException e) {
+            return Response.status(404).build();
         } catch (UnauthorizedException e) {
             return Response.status(401).build();
         }
