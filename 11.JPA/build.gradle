@@ -24,6 +24,7 @@ dependencies {
     cargo 'org.codehaus.cargo:cargo-ant:1.4.8'
     // http://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client
 
+    compile project(":ATM_JPA_model")
 }
 
 

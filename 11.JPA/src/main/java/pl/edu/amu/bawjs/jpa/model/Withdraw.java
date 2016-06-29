@@ -6,7 +6,7 @@ package pl.edu.amu.bawjs.jpa.model;
 public class Withdraw {
     private String number;
     private String pin;
-    private double amount;
+    private int amount;
 
     public String getNumber() {
         return number;
@@ -24,11 +24,11 @@ public class Withdraw {
         this.pin = pin;
     }
 
-    public double getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 }
