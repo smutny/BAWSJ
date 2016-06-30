@@ -6,6 +6,9 @@
     <persistence-unit name="PersistenceUnit">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
+        <class>pl.edu.amu.bawsj.atmjpa.model.Account</class>
+        <class>pl.edu.amu.bawsj.atmjpa.model.Card</class>
+        <class>pl.edu.amu.bawsj.atmjpa.model.User</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
